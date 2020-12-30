@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML"/>
+  <title>
+  
+  TOGGLATO
+  
+  </title>
+   
+  <style>
+  html * {font-size:1.5rem;font-family:monospace;font-weight:bold;}
+  
+  .posXoY{position:fixed;bottom:0;right:0;}
+  .colorX{background-color:orange;color:black;}
+  .colorY{background-color:indigo;color:oldlace;}
+  
+  </style>
+</head>
+<body>
+
+
+
+  <p class="vedoXoY">&nbsp;ok</p>
+  
+  
+  <span onclick="show_elemento()" 
+  class="posXoY colorY noY siY">Y</span>
+  
+  
+  <span onclick="hide_elemento()" 
+  class="posXoY colorX noX siX">X</span>
+
+
+
+
+<script>
+
+function hide_elemento(){
+
+elemento=document.querySelector(".vedoXoY");
+elemento.style.visibility="hidden";
+
+elemento=document.querySelector(".noX");
+elemento.style.visibility="hidden";
+
+elemento=document.querySelector(".siY");
+elemento.style.visibility="visible";
+
+
+}
+
+function show_elemento(){
+
+elemento=document.querySelector(".vedoXoY");
+elemento.style.visibility="visible";
+
+elemento=document.querySelector(".siX");
+elemento.style.visibility="visible";
+
+elemento=document.querySelector(".noY");
+elemento.style.visibility="hidden";
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
