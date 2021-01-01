@@ -1,0 +1,3693 @@
+<!DOCTYPE html>
+<html id="html" lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+ <meta charset="utf-8">
+ <meta name="viewport" 
+ content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+ <title>
+ 1830 kickstart_togglato --- MAGIC PATCHES 20201228
+
+ 20191119f_1-CREEK 20200704-0810_by_odlanir - Altervista
+ </title>
+
+<!-- root link -->
+<!-- http://beatsupernovarasa.altervista.org/zap/ -->
+ <script src="http://beatsupernovarasa.altervista.org/radice/radice.js"></script>
+<style>
+/* queste variazioni o aggiunte vanno archiviate in BS/DEFAULT.JS */
+.promemoria{border:solid 0rem red !important;
+border-left:solid 0.5rem indigo !important;
+ }
+
+.promemoria:hover .text-promemoria{
+width:50%;height:auto;
+ animation: fadeIn ease 4.1s; 
+ -webkit-animation: fadeIn ease 4.1s; 
+ -moz-animation: fadeIn ease 4.1s; 
+ -o-animation: fadeIn ease 4.1s; 
+ -ms-animation: fadeIn ease 4.1s;
+ overflow:auto !important;
+ font-style:normal !important;
+ border-left:solid 1rem indigo !important;
+ 
+display:block;
+}
+
+.text-promemoria{display:none; background-color:var(--bs-indigo); color:oldlace;border-radius:0.2rem;}
+
+ .dissolvenza { 
+ animation: fadeIn ease 2.5s; 
+ -webkit-animation: fadeIn ease 2.5s; 
+ -moz-animation: fadeIn ease 2.5s; 
+ -o-animation: fadeIn ease 2.5s; 
+ -ms-animation: fadeIn ease 2.5s; 
+ } 
+ 
+ 
+ @keyframes fadeIn { 
+ 0% {opacity:0;} 
+ 100% {opacity:1;} 
+ } 
+ 
+
+
+</style>
+
+<style>
+:root {background-color:rgba(255,170,0,0.5); }
+
+html * {font-family:'PT Mono' !important;}
+
+body{ background-color:default; }
+</style>
+
+</head>
+
+
+<!-- body with magic patch style -->
+<body id="body" onload="pausa()" style="visibility:hidden;">
+
+<main id="main">
+
+
+<section class="mb-5 fw-bold pl-5 pr-5">
+<article class="container text-left border pt-5">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p class="text-center text-uppercase bg-warning" style="font-size: 1.5rem !important;">
+<span style="font-family: 'PT Mono', monospace !important;"></span>
+La funzione di documentgetElementById 
+<i class="fw-normal">DGEBI</i> nel framework 
+<u style="background-color:var(--bs-orange) !important;font-size:1.5rem !important;">MAGIC PATCHES</u>.
+</p>
+
+<p>
+In questo programma manca uno pseudo-main o 
+(<i class="mx-0 px-0 promemoria" style="inline-block !important;">
+main 
+<span class="text-promemoria"padding>
+Ricordarsi il 
+padding px-5 per tenere due margini a sinistra e destra 
+per tool e responsive.
+</span>
+</i>
+)
+
+dato che contiene le informazioni da visualizzare rappresenta un file 
+personalizzato per la pagina la quale è stata impostata come una struttura 
+standard [<a href="#template_generico">*</a>]. 
+
+Lo pseudo-main è scritto in <i>html</i> indi "compilato" in <i>DGEBI</i> e inserito come script. 
+(Comunque rappresenta già una fase avanzata di un progetto, vale a dire 
+un prodotto finito.)
+</p>
+<p class="text-decoration-underline">
+ <span>Quale sarebbe il vantaggio?</span>
+</p>
+
+ 
+
+<p>
+Un codice adeguatamente uniformato ad un metodo, risulta il primo vantaggio. Naturalmente si parte 
+dal principio che utilizzando il <i>DGEBI</i> si riutilizzano elementi standard senza doverli riscrivere 
+questo comporta una diminuizione del peso di <i>html</i> nella economia del codice. Un programma 
+si avvale di componenti come ad esempio i menu definenti la navigazione standard e le informazioni su 
+aggiornamenti pagina che interessanto il dominio globalmente.
+</p>
+<p>
+Utilizzare un framework come 
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js" 
+class="text-link-generico">
+Bootstrap</a> 
+attraverso i CDN richiede una connessione ad Internet. Questo 
+attraverso il 	<i>DGEBI</i> diventa evitabile facendo un copia e incolla del contenuto del CDN in 
+locale. <i class="fw-normal">Agevolmente si possono effettuare aggiustamenti al codice di boostrap 
+aggiungendo linee nuove nel file locale. In particolare BS permette di uniformare la immagine 
+delle pagine web cross-browser ma il contenuto del framework talvolta contiene molte features che 
+al momento non servovo. Mi riferisco alla fase alfa e beta del framework. In fase di costruzione 
+sono aggiunte funzionalità e magari se ne perdono altre. Dopo diversi passaggi in locale ci si 
+trova un framework che mixa alfa e beta in modo perfettamente adeguato alle esigenze del client. </i>
+</p>
+<p>
+	Con l'ultima versione di BS è stato rimosso jQuery come dipendenza può succedere che in alfa 
+	un javascript funzioni mentre non in beta, mentre i css funzionano ancora bene e occorre solamente
+	fare un minimo aggiustamento in aggiunta delle nuove funzionalità.
+</p>
+
+
+<p>
+	Utilizzando il DGEBI si presuppone che client abbia già attivato l'interprete javascript 
+	potrebbe essere un drawback ma oramai nei browser javascript è attivato per default e 
+	la commistione html+css+javascript è talmente uno standard che difficilmente ci si
+	troverà ad incontrare problemi a questo riguardo.
+</p>
+
+
+<p class="fw-normal">
+Nella fase di compilazione del DGEBI ci possono essere dei problemi riguardanti il fatto 
+che nello script ci sia un conflitto con caratteri speciali non approvati dallo script ma 
+perfettamenti accettati da html. Risulta essere il caso del carattere ' (apice) il quale 
+fa da delimitatore delle stringhe concatenate. Compilando il testo occorre istruire una 
+conversione utilizzando i caratteri di escape \' (apice singolo) oppure \" (doppio apice) 
+oppure \\ (barra inversa).
+
+</p>
+
+
+
+<div class="mt-5 text-uppercase bg-white">
+
+	<header style="font-style:initial !important;">
+ Utilizzo generico del DGEBI
+ </header>
+</div>
+
+<div> 
+
+<!--
+<xmp class="text-xmp">
+document.getElementById("test").innerHTML='';
+</xmp>
+-->
+<pre class="text-xmp">
+
+document.getElementById(&#34;test&#34;).innerHTML&#61;'';
+
+</pre>
+
+
+
+<p class="text-xmp-sub">
+Prima di compilare usare un editor per sostituire gli <i>apici singoli</i> usati in alcuni link 
+per chiarezza della scrittura. Ad esempio 'http://nomedominio.com' sostituire con <i>apici doppi</i> 
+in realtà il link funziona regolarmente e si evita grandi problemi con gli apici di apertura 
+e chiusra del DGEBI.
+</p>
+
+<!--
+<xmp class="text-xmp">
+document.getElementById("test").style.visibility='visible';
+</xmp>
+-->
+<pre class="text-xmp">
+
+document&#46;getElementById(&#34;test&#34;)&#46;style&#46;visibility=&#39;visible&#39;;
+
+</pre>
+
+
+
+<p class="text-xmp-sub"> Nel caso di uso per lo stile controllare la grammatica dei metodi javascript 
+	poiché possono differire dallo standard html-css.
+<p>
+
+
+<a class="link-generico" href="https://www.w3schools.com/jsref/dom_obj_style.asp">
+	HTML DOM Style Object
+</a>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_spinner" class="my-5"><hr/></p>
+
+
+<p class="mt-5 bg-warning" style="font-size: 1.25rem !important;">	Un esempio di uso del DGEBI : lo <i>spinner</i> blues... </p>
+
+<p>
+Quando il tempo di caricamento <i>loading</i> è piuttosto lungo risulta utile uno spinner 
+per avvertire l'utente che il browser sta funzionando, in realtà anche il browser ha un
+suo spinner, quindi lo spinner personalizzato è ridondante. Senonchè rafforza il messaggio 
+in più se aggiungiamo anche un progress bar allora la funzione diventa veramente una aggiunta.
+Il <i>progress bar</i> è prevista per tempi lunghissimi, in tal caso il programmatore 
+è a conoscenza del tempo medio di caricamento del codice per cui si può posizionare un 
+avvertimento.
+</p>
+
+<!--
+<xmp class="text-xmp">
+
+function attesa(){
+if (document.all){} 
+else if 
+(document.getElementById)
+ { document.getElementById("spinner").style.visibility="hidden"; }
+
+}
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+function attesa&#40;&#41;&#123;
+if &#40;document&#46;all&#41;&#123;&#125; 
+else if 
+&#40;document&#46;getElementById&#41;
+ &#123; document&#46;getElementById&#40;"spinner"&#41;&#46;style&#46;visibility="hidden"; &#125;
+
+&#125;
+
+</pre>
+
+
+
+
+<p class="text-xmp-sub">
+Questa funzione è molto interessante poichè utilizza <i>document.all</i> il quale 
+fa un check se il documento è in corso di caricamento. In questo caso non fa nulla {} 
+<i>in realtà si realizza un errore intercettato da id="spinner" visualizza lo spinner </i>. 
+Allorquando il documento è completamente caricato si attiva lo stile il quale 
+cancella lo spinner.
+
+</p>
+
+<!--
+<xmp class="text-xmp">
+<div id="spinner" class="spinner-border"></div>
+</xmp>
+-->
+<pre class="text-xmp">
+
+&#60;div id="spinner" class="spinner-border"&#62;&#60;/div&#62;
+
+</pre>
+
+
+<p class="text-xmp-sub">
+Il frammento di codice html con id intercetta il <i>document.all</i> , lo spinner 
+utilizzato può essere una icona animata oppure preso da boostrap 
+<span class="spinner-border"></span>
+<span>spinner standard di bootstrap</span>
+</p>
+
+<p class="text-xmp-sub">
+Una funzione javascript non si attiva da sola, ha bisogno di un <i>evento</i> che 
+faccia da avvio. In questo caso viene attivato al momento dell'avvio della pagina 
+</p>
+
+<!--
+<xmp class="text-xmp">
+<body onload="attesa()">
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;body onload="attesa()"&#62;
+
+</pre>
+
+
+
+<p class="text-xmp-sub">
+Ora è possibile assemblare le componenti
+</p>
+<!--
+<xmp class="text-xmp">
+<body onload="attesa()">
+<div id="spinner" class="spinner-border"></div>
+<script>
+function attesa(){
+if (document.all){} 
+else if 
+(document.getElementById)
+{ document.getElementById("spinner").style.visibility="hidden"; }
+}
+</script>
+</body>
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+
+&#60;body onload="attesa()"&#62;
+&#60;div id="spinner" class="spinner-border"&#62;&#60;&#47;div&#62;
+&#60;script&#62;
+function attesa()&#123;
+if (document.all)&#123;&#125; 
+else if 
+(document.getElementById)
+&#123; document.getElementById("spinner").style.visibility="hidden"; &#125;
+&#125;
+&#60;&#47;script&#62;
+&#60;&#47;body&#62;
+
+
+</pre>
+
+
+<p class="text-normale">
+Un ulteriore perfezionamento con interazioni html body e 
+percentuale di caricamento (qui fissata in 15minuti)
+</p>
+
+<pre>
+
+	&#60;html id&#61;"html"&#62;
+
+</pre>
+<p class="text-normale-commento">
+Viene dato un id all'elemento <i>html</i>	
+</p>
+
+<pre>
+	
+&#60;style&#62;
+:root {background-color:rgba&#40;255,170,0,0.5&#41;;}
+
+body{ background-color:default; }
+&#60;/style&#62;
+
+</pre>
+<p class="text-normale-commento">
+Viene settato un <i>root</i> e un body come sfondo 
+</p>
+
+
+<pre>
+
+&#60;body id&#61;"body" onload&#61;"pausa&#40;&#41;" style&#61;"visibility:hidden;"&#62;
+
+</pre>
+<p class="text-normale-commento">
+Aggiungo un id a body e uno style visibility hidden. onload effettua il caricamento 
+alla partenza della funzione javascript <i>pausa</i>	
+</p>
+
+
+<pre style="background-color:oldlace !important;">
+
+ 
+	&#60;div id&#61;"divpausa" style&#61;"position:fixed;
+	top:2.5rem;left:0;
+	top:50%;left:50%;
+	background-color:var&#40;--bs-white&#41; !important;
+	margin-left:-8.5rem !important; margin-top:-2rem !important; 
+	border-radius:0.2rem !important; visibility:visible !important;"&#62;
+	&#60;span id&#61;"pausa" class&#61;"spinner-border text-warning"&#62;&#60;/span&#62;
+	
+	&#60;span style&#61;"background-color:transparent !important;"&#62;
+	&#60;span id&#61;"Loading"
+	style&#61;"color:var&#40;--bs-indigo&#41; !important; font-size:2rem !important;"&#62;
+	Loading...&#60;/span&#62;
+	&#60;span id&#61;"percento" 
+	style&#61;"color:var&#40;--bs-indigo&#41; !important;
+	font-size:2rem !important;font-variant:small-caps !important;"&#62;
+	&#60;/span&#62;
+	&#60;/span&#62;
+	&#60;/div&#62; 
+	
+	
+	
+	
+	
+	 &#60;script&#62;
+	 
+	function pausa&#40;&#41;{
+	if &#40;document.all&#41;{} 
+	else if 
+	&#40;document.getElementById&#41;
+	 { 
+	 document.getElementById&#40;"pausa"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"percento"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"Loading"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"divpausa"&#41;.style.visibility&#61;"hidden";
+	
+	 document.getElementById&#40;"body"&#41;.style.visibility&#61;"visible";
+	 document.getElementById&#40;"body"&#41;.style.backgroundColor &#61; 'default';
+	 document.getElementById&#40;"html"&#41;.style.backgroundColor &#61; 'transparent';
+	
+	 }
+	
+	}
+	
+	var percento&#61;document.getElementById&#40;"percento"&#41;;
+	var contatore&#61;1; 
+	var intervallo&#61;setInterval&#40; function&#40;&#41; { percento.innerHTML&#61;contatore+"%"; 
+	contatore++; if &#40;contatore&#61;&#61;&#61;101&#41; {clearInterval&#40;intervallo&#41;;} 
+	} , 9000&#41; 
+	
+	 &#60;/script&#62;
+	
+</pre>
+<p class="text-normale-commento">
+Qui il codice completo da inserire nel <u>body</u>. Vi si vede il settaggio 
+di interval a 9000 = 9sec , ogni 9secondi vi è un avanzamento del conteggio 
+del 1percento 9x100=900sec = 15minuti , naturalmente viene visualizzato dal 
+programma il 100% , lo spinner in questione è indicativo del tempo di 
+caricamento ed è gestito in modo statico dal programmatore. Se il tempo 
+fosse maggiore di 15minuti si rifà il calcolo e si aggiorna lo script.
+
+</p>
+
+
+
+
+<p class="mt-5 text-normale">
+Qualche aggiunta per posizionare adeguatamente lo spinner tramite position fixed o qualcosa 
+di simile. 
+<i>
+L'uso di bootstrap permette di velocizzare le operazioni dal punto di vista 
+di come appare lo spinner. 
+</i>
+<span style="font-size: 0.7rem !important;">
+In aggiunta la immagine dello spinner richiede una 
+più che sufficiente esperienza con i css.
+</span>
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_asincrono" class="my-5"><hr/></p>
+
+<p class="text-titoletto">
+Caricamenti a/sincroni
+</p>
+<p class="text-normale">
+Quando si scrivono file esterni contenenti istruzioni per lo stile e script 
+nei browser l'aggiornamento ai nuovi valori non avviene automaticamente creando 
+soprattutto in fase di debugging una difficoltà di comprensione dei fattori 
+anomali e quindi a perdita di tempo. <i>L'idea base è quella di effettuare 
+un aggiustamento al volo ricorrendo al <b>indirizzo?qualcosa</b> questa soluzione 
+richiede un continuo estenuante passaggio tra file html e file css o js
+</i> . La soluzione è creare uno script per il caricamento degli script esterni e 
+dei fogli di stile esterni.
+
+</p>
+
+<p class="fw-bold">
+Per ottenere questa funzionalità occorre usare il metodo <i>document.createElement("script");</i> nel caso di uno script
+</p>
+<p class="fw-bold">
+oppure <i>document.createElement("link");</i> nel caso di link a file esterno css.
+</p>
+<p class="fw-bold bg-success" style="color:oldlace;">
+Questi script depositano in <i>head</i> il loro contenuto.
+</p>
+<xmp class="text-xmp">
+var carica_script = document.createElement("script");
+
+document.getElementsByTagName("head")[0].appendChild(carica_script);
+</xmp>
+
+<xmp class="text-xmp">
+var carica_link = document.createElement("link");
+
+document.getElementsByTagName("head")[0].appendChild(carica_link);
+</xmp>
+
+<p class="text-xmp-sub">
+Le due sequenze di codice si riferiscono a due tipologie di elementi ma per 
+entrambe occorre creare un postfisso.
+</p>
+
+<xmp class="text-xmp">
+var postfisso = new Date();	
+</xmp>
+
+
+<p class="text-normale">
+Il <i>postfisso</i> è un indice con il quale si individualizza un refresh 
+nella ricerca del file comunicando al browser che è una nuova istanza di 
+caricamento. Come postfisso si può usare anche un generatore di numeri 
+random. Invece con new Date() si indicizza utilizzando il datario javascript 
+il quale si aggiorna quando si fa il check della pagina html. Il postfisso 
+è comune ad entrambe le tipologie.
+</p>
+
+<p class="text-normale-commento">
+<a id="nota_indietro_001" href="#nota_001" class="note-cerchietto">
+1
+</a>	 
+
+Metodo new Date() 
+<a class="text-link-generico" href="https://www.w3schools.com/jsref/jsref_obj_date.asp">
+JavaScript Date Reference</a>
+</p>
+
+
+<p>
+Aggiungiamo ora il <i>nome</i> del file da includere
+</p>
+<xmp class="text-xmp">
+var nome = "file.js";
+nome = nome + "?" + postfisso;
+</xmp>
+
+<p>oppure se il file contiene elementi o classi </p>
+
+<xmp>
+var nome = "file.css";
+nome = nome + "?" + postfisso;	
+</xmp>
+
+<p class="text-normale-commento">
+Quando il file esterno è un DGEBI occorre tenere conto che 
+per mnemonico il nome richiama l'ID , ad esempio <i>extras.js</i> 
+richiama mnemonicamente <i>id="extras"</i> ovviamente questa è una 
+raccomandazione non una necessità, ma se si usa DGEBI risulta di 
+estrema utilità.
+</p>
+
+<p class="fw-bold">
+Ora dobbiamo combinare il <u>nome dello script</u> con un elemento di <u>nome</u>
+</p>
+
+<xmp>
+carica_script.src=nome;
+</xmp>
+<p class="text-normale-commento fw-bold">
+Corrisponde al comando src="file.js" 
+</p>
+<xmp class="mb-5">
+<script src="file.js"></script>
+</xmp>
+<p class="text-normale-commento">
+Un caso interessante è la decodifica di
+</p>
+<xmp>
+<link rel="stylesheet" href="file.css"	/>
+</xmp>
+<p>che diventa</p>
+<xmp>
+carica_link.href = nome;
+carica_link.rel="stylesheet"
+</xmp>
+
+
+<p class="text-normale-commento text-uppercase border border-5 border-success">
+Schema completo a/sincrono per javascript DGEBI
+<!--
+<xmp>
+var carica_script = document.createElement("script");
+var postfisso = new Date();	
+var nome = "file.js";
+nome = nome + "?" + postfisso;
+carica_script.src=nome;
+document.getElementsByTagName("head")[0].appendChild(carica_script);
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+var carica_script &#61; document.createElement("script"&#41;;
+var postfisso &#61; new Date(&#41;;	
+var nome &#61; "file.js";
+nome &#61; nome + "?" + postfisso;
+carica_script.src&#61;nome;
+document.getElementsByTagName("head"&#41;[0].appendChild(carica_script&#41;;
+
+</pre>
+
+
+</p>
+
+
+<p class="text-normale-commento text-uppercase border border-5 border-success">
+Schema completo a/sincrono per file css
+<!--
+<xmp>
+var carica_link = document.createElement("link");
+var postfisso = new Date();	
+var nome = "file.css";
+nome = nome + "?" + postfisso;
+carica_link.href=nome;
+carica_link.rel="stylesheet";
+document.getElementsByTagName("head")[0].appendChild(carica_link);
+</xmp>
+-->
+<pre class="text-xmp">
+
+var carica_link &#61; document.createElement("link"&#41;;
+var postfisso &#61; new Date(&#41;;	
+var nome &#61; "file.css";
+nome &#61; nome + "?" + postfisso;
+carica_link.href&#61;nome;
+carica_link.rel&#61;"stylesheet";
+document.getElementsByTagName("head"&#41;[0].appendChild(carica_link&#41;;
+
+</pre>
+
+
+</p>
+
+
+<p class="text-xmp-sub">
+	Consideriamo ora un aggiustamento usufruendo della flessibilità di 
+	javascript con un esempio 
+<xmp>
+var radice="http://beatsupernovarasa.altervista.org/zap/radice.js" ;
+</xmp>
+</p>
+<p class="text-xmp-sub">
+Questa variabile permette di riferirsi tramite il nome <i>radice</i> 
+ad una porzione dell'indirizzo web server depositato nel <i>file radice.js</i> 
+risparmiando così la digitazione dell'indirizzo completo.
+</p>
+<xmp>
+var nome = radice+"nome.js";
+</xmp>
+
+<p class="text-normale-commento-reverse" 
+style="background-color: var(--bs-pink) !important; color:var(--bs-white) !important; 
+font-weight:normal !important;">
+Un'applicazione molto interessante è il compattamento di tutti i link 
+<i>standard</i> o di default.
+<a id="nota_indietro_006" href="#nota_006" class="note-cerchietto">
+	6
+</a>
+
+</p>
+<!--
+<xmp class="text-xmp">
+
+
+	var postfisso = new Date();	
+
+	var carica_script_JQUERY = document.createElement("script");
+	var nome_JQUERY = "https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js";
+	nome_JQUERY = nome_JQUERY + "?" + postfisso;
+	carica_script_JQUERY.src=nome_JQUERY;
+	document.getElementsByTagName("head")[0].appendChild(carica_script_JQUERY);
+	
+	var carica_script_BSNR_KICKSTART_TEST = document.createElement("script");
+	var nome_BSNR_KICKSTART_TEST = "http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js";
+	nome_BSNR_KICKSTART_TEST = nome_BSNR_KICKSTART_TEST + "?" + postfisso;
+	carica_script_BSNR_KICKSTART_TEST.src=nome_BSNR_KICKSTART_TEST;
+	document.getElementsByTagName("head")[0].appendChild(carica_script_BSNR_KICKSTART_TEST);
+	
+	var carica_script_PIEDIPAGINA_MENU_TEST = document.createElement("script");
+	var nome_PIEDIPAGINA_MENU_TEST = "http://beatsupernovarasa.altervista.org/zap/bs/kickstart/piedipagina_menu_test/default.js";
+	nome_PIEDIPAGINA_MENU_TEST = nome_PIEDIPAGINA_MENU_TEST + "?" + postfisso;
+	carica_script_PIEDIPAGINA_MENU_TEST.src=nome_PIEDIPAGINA_MENU_TEST;
+	document.getElementsByTagName("head")[0].appendChild(carica_script_PIEDIPAGINA_MENU_TEST);
+	
+	var carica_script_SHOW_HIDE = document.createElement("script");
+	var nome_SHOW_HIDE = "http://beatsupernovarasa.altervista.org/zap/bs/kickstart/show_hide/default.js";
+	nome_SHOW_HIDE = nome_SHOW_HIDE + "?" + postfisso;
+	carica_script_SHOW_HIDE.src=nome_SHOW_HIDE;
+	document.getElementsByTagName("head")[0].appendChild(carica_script_SHOW_HIDE);
+	
+	var carica_link_TABLONE = document.createElement("link");
+	var nome_TABLONE = "http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css";
+	nome_TABLONE = nome_TABLONE + "?" + postfisso;
+	carica_link_TABLONE.href=nome_TABLONE;
+	carica_link_TABLONE.rel="stylesheet";
+	document.getElementsByTagName("head")[0].appendChild(carica_link_TABLONE);
+	
+	
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+	var postfisso &#61; new Date(&#41;;	
+
+	var carica_script_JQUERY &#61; document.createElement(&#34;script&#34;&#41;;
+	var nome_JQUERY &#61; &#34;https:&#47;&#47;ajax.googleapis.com&#47;ajax&#47;libs&#47;jquery&#47;3.5.1&#47;jquery.min.js&#34;;
+	nome_JQUERY &#61; nome_JQUERY + &#34;?&#34; + postfisso;
+	carica_script_JQUERY.src&#61;nome_JQUERY;
+	document.getElementsByTagName(&#34;head&#34;&#41;[0].appendChild(carica_script_JQUERY&#41;;
+	
+	var carica_script_BSNR_KICKSTART_TEST &#61; document.createElement(&#34;script&#34;&#41;;
+	var nome_BSNR_KICKSTART_TEST &#61; &#34;http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;bsnr_kickstart_test&#47;default.js&#34;;
+	nome_BSNR_KICKSTART_TEST &#61; nome_BSNR_KICKSTART_TEST + &#34;?&#34; + postfisso;
+	carica_script_BSNR_KICKSTART_TEST.src&#61;nome_BSNR_KICKSTART_TEST;
+	document.getElementsByTagName(&#34;head&#34;&#41;[0].appendChild(carica_script_BSNR_KICKSTART_TEST&#41;;
+	
+	var carica_script_PIEDIPAGINA_MENU_TEST &#61; document.createElement(&#34;script&#34;&#41;;
+	var nome_PIEDIPAGINA_MENU_TEST &#61; &#34;http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;piedipagina_menu_test&#47;default.js&#34;;
+	nome_PIEDIPAGINA_MENU_TEST &#61; nome_PIEDIPAGINA_MENU_TEST + &#34;?&#34; + postfisso;
+	carica_script_PIEDIPAGINA_MENU_TEST.src&#61;nome_PIEDIPAGINA_MENU_TEST;
+	document.getElementsByTagName(&#34;head&#34;&#41;[0].appendChild(carica_script_PIEDIPAGINA_MENU_TEST&#41;;
+	
+	var carica_script_SHOW_HIDE &#61; document.createElement(&#34;script&#34;&#41;;
+	var nome_SHOW_HIDE &#61; &#34;http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;show_hide&#47;default.js&#34;;
+	nome_SHOW_HIDE &#61; nome_SHOW_HIDE + &#34;?&#34; + postfisso;
+	carica_script_SHOW_HIDE.src&#61;nome_SHOW_HIDE;
+	document.getElementsByTagName(&#34;head&#34;&#41;[0].appendChild(carica_script_SHOW_HIDE&#41;;
+	
+	var carica_link_TABLONE &#61; document.createElement(&#34;link&#34;&#41;;
+	var nome_TABLONE &#61; &#34;http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;tablone&#47;default.css&#34;;
+	nome_TABLONE &#61; nome_TABLONE + &#34;?&#34; + postfisso;
+	carica_link_TABLONE.href&#61;nome_TABLONE;
+	carica_link_TABLONE.rel&#61;&#34;stylesheet&#34;;
+	document.getElementsByTagName(&#34;head&#34;&#41;[0].appendChild(carica_link_TABLONE&#41;;
+
+</pre>
+
+
+
+
+
+
+<p class="text-xmp-sub" style="border-left:solid 1rem var(--bs-green) !important;">
+Con un unico script si caricano tutti i file necessari per <u>user</u> lasciando 
+libero spazio al <i>main</i> e alle sezioni.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_font" class="my-5"><hr/></p>
+
+
+<p class="text-titoletto">
+Le font 
+<a id="nota_indietro_007" 
+href="#nota_007" 
+class="note-cerchietto">
+7
+</a>
+</p>
+<p>
+Privilegio delle monospace. Google fonts <a class="text-link-generico" href="https://fonts.google.com/specimen/PT+Mono?category=Monospace&selection.family=Fira+Code:wght@400;500|Inconsolata:wght@500|PT+Mono|Roboto+Mono&query=pt&sidebar.open=true#glyphs" >PT Mono</a>
+</p>
+<xmp>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inconsolata:wght@500&family=PT+Mono&family=Roboto+Mono&display=swap" rel="stylesheet">
+
+html * {font-family: 'PT Mono', monospace !important;} 
+</xmp>
+<p class="text-xmp-sub">
+La ricerca della font monospace adeguata interessa per il problema dei bastoni 
+soprattutto nelle <i>elle</i> che si possono confondere con le <i>i</i> maiuscole e 
+nelle <i>o</i> che si possono confonedere con lo <i>zero</i> e viceversa se non si 
+usa il monospace. <span class="fw-bold">Alcune porzioni di programmazione richiedono un adeguato 
+modo differenziato per non incorrere in bug insidiosi.</span>
+
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_collapse" class="my-5"><hr/></p>
+
+
+<p class="text-titoletto"> Il collapse</p>
+<p class="bg-success p-2" style="color:oldlace !important;text-align: justify !important;">
+Questo effetto di apparizione/sparizione del menu gestito da <a class="text-link-generico" href="https://getbootstrap.com/docs/5.0/components/collapse/">bootstrap</a> 
+è molto importante per la pagina in quanto riduce l'affollamento di sticker.
+</p>
+
+<!--
+<xmp>
+<section style="position:fixed; bottom:0; left:0;
+ width:100%; text-align:left; border:solid 0rem green;">
+
+<button type="button" class="btn shadow-none bg-warning rounded" 
+aria-expanded="false" data-toggle="collapse" data-target="#collapseMenu" 
+style="position:fixed; top:2.5rem; right:0; /* border-radius:0rem !important; border:solid 0rem black; */ "> 
+<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-back" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/>
+</svg>
+</button>
+
+<div id="collapseMenu" class="collapse border-0">
+<ul style="border:solid 0.25rem indigo !important;
+height:11.5rem !important; 
+overflow:auto !important; border-radius:0.2rem !important; ">
+
+<a href="#">link_del_menu</a>
+
+</ul>
+</div>
+
+</section>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+
+&#60;section style=&#34;position:fixed; bottom:0; left:0;
+ width:100%; text-align:left; border:solid 0rem green;&#34;&#62;
+
+&#60;button type=&#34;button&#34; class=&#34;btn shadow-none bg-warning rounded&#34; 
+aria-expanded=&#34;false&#34; data-toggle=&#34;collapse&#34; data-target=&#34;#collapseMenu&#34; 
+style=&#34;position:fixed; top:2.5rem; right:0; &#47;* border-radius:0rem !important; border:solid 0rem black; *&#47; &#34;&#62; 
+&#60;svg width=&#34;1em&#34; height=&#34;1em&#34; viewBox=&#34;0 0 16 16&#34; class=&#34;bi bi-back&#34; fill=&#34;currentColor&#34; xmlns=&#34;http:&#47;&#47;www.w3.org&#47;2000&#47;svg&#34;&#62;&#60;path fill-rule=&#34;evenodd&#34; d=&#34;M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z&#34;&#47;&#62;
+&#60;&#47;svg&#62;
+&#60;&#47;button&#62;
+
+&#60;div id=&#34;collapseMenu&#34; class=&#34;collapse border-0&#34;&#62;
+&#60;ul style=&#34;border:solid 0.25rem indigo !important;
+height:11.5rem !important; 
+overflow:auto !important; border-radius:0.2rem !important; &#34;&#62;
+
+&#60;a href=&#34;#&#34;&#62;link_del_menu&#60;&#47;a&#62;
+
+&#60;&#47;ul&#62;
+&#60;&#47;div&#62;
+
+&#60;&#47;section&#62;
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_sign_in" class="my-5"><hr/></p>
+<p class="text-titoletto">
+	Sign in
+</p>
+<p class="text-normale">
+Il sign in rappresenta una richiesta di utenza e password per accedere al contenuto della 
+pagina. Per ottenere questo effetto occorre usare il linguaggio <i>php</i> il quale usa 
+essere dal <u>lato server</u> quindi funziona direttamente dal sito e il codice php non può 
+essere visto quando si esegue il codice <u>php</u>	che lo lancia; tuttavia con un programma 
+apposito si può eseguire il codice php in locale tramite 
+<a href="https://www.apachefriends.org/it/download.html">
+	xampp</a> . Una volta installato eseguire il comando per attivare il <u>control panel</u> 
+	<span class="text-normale-commento">drive:\xampp\xampp-control.exe</span> trovare la icona 
+	e cliccare. Quando appare il pannello di controllo xampp cliccare <u>start</u> e l'ambiente 
+	è in funzione come <u>localhost</u> dal quale con il comando 
+	<span class="text-link-note">localhost/file.php</span> 
+	digitandolo dal browser si emula il comportamento da server.
+
+
+</p>
+	<p class="text-xmp-sub">Fare attenzione a depositare il file php nella 
+		cartella <u class="text-normale-commento-reverse">htdocs</u>.
+	</p>
+
+<p>
+La combinazione user password permette di gestire una sessione di file php, una volta <u>loggato</u>	 
+i successivi file controllano se user password sono corretti prima di evidenziare il loro contenuto .
+</p>
+<!--
+<xmp class="text-xmp">
+<?php session_start(); 
+if(!isset($_SESSION['UserData']['Username'])){
+header("location:/index.php");
+exit;
+}
+?>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;?php session_start&#40;&#41;; 
+if&#40;!isset&#40;$_SESSION['UserData']['Username']&#41;&#41;{
+header&#40;"location:/index.php"&#41;;
+exit;
+}
+?&#62;
+
+</pre>
+
+
+
+
+<p class="text-xmp-sub">
+Il codice controlla se <i>username password </i> combinano altrimenti si viene reindirizzati 
+al file <i>index.php</i>
+</p>
+
+<p>
+Nel file <i>index.php</i> è contenuto il form per inserire <i>username password</i>.
+</p>
+<!--
+<xmp class="text-xmp">
+<?php session_start(); 
+if(isset($_POST['Submit'])){
+
+$logins = array('rinaldo' => '1234','username1' => 'password1','username2' => 'password2');
+
+$Username = isset($_POST['Username']) ? $_POST['Username'] : '';
+$Password = isset($_POST['Password']) ? $_POST['Password'] : '';
+
+if (isset($logins[$Username]) && $logins[$Username] == $Password){
+
+$_SESSION['UserData']['Username']=$logins[$Username];
+header("location:file.php");
+exit;
+} else {
+
+$msg="<span style='color:red'>Invalid Login Details</span>";
+
+}
+}
+?>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;?php session_start&#40;&#41;; 
+if&#40;isset&#40;$_POST['Submit']&#41;&#41;&#123;
+
+$logins = array&#40;'rinaldo' =&#62; '1234','username1' =&#62; 'password1','username2' =&#62; 'password2'&#41;;
+
+$Username = isset&#40;$_POST['Username']&#41; ? $_POST['Username'] : '';
+$Password = isset&#40;$_POST['Password']&#41; ? $_POST['Password'] : '';
+
+if &#40;isset&#40;$logins[$Username]&#41; && $logins[$Username] == $Password&#41;&#123;
+
+$_SESSION['UserData']['Username']=$logins[$Username];
+header&#40;"location:file.php"&#41;;
+exit;
+&#125; else &#123;
+
+$msg="&#60;span style='color:red'&#62;Invalid Login Details&#60;/span&#62;";
+
+&#125;
+&#125;
+?&#62; 
+
+</pre>
+
+
+
+
+<p class="text-xmp-sub">
+Il form accetta <i>username password</i> indi invia i dati al file <i>file.php</i> che 
+controlla la validità del sign in ed esegue il codice se corrisponde altrimenti 
+reinvia ad <u class="text-normale-commento-reverse">index.php</u>. Ogni altro file 
+della <u>catena</u> è vincolato dal login (sign in) anche se un client cerca di accedere 
+senza usare la home page.
+</p>
+
+<!--
+<xmp class="text-xmp">
+<form method="post" name="Login_Form">
+ <table>
+ <tr> <td><h3><span>Login</span></h3></td> <td></td> </tr>
+ <tr> <td>Username</td> <td><input name="Username" type="text" class="Input">
+	 <span style="background-color:oldlace; color:maroon;">username1</span></td></tr>
+ <tr><td>Password </td><td><input name="Password" type="password" class="Input">
+	 <span style="background-color:oldlace; color:maroon;">password1</span></td>
+	 </tr>
+ <tr> <td><input name="Submit" type="submit" value="Login" style=" cursor:pointer !important;">
+	 </td><td> </td></tr>	
+ </table>
+</form> 
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;form method="post" name="Login_Form"&#62;
+ &#60;table&#62;
+ &#60;tr&#62; &#60;td&#62;&#60;h3&#62;&#60;span&#62;Login&#60;/span&#62;&#60;/h3&#62;&#60;/td&#62; &#60;td&#62;&#60;/td&#62; &#60;/tr&#62;
+ &#60;tr&#62; &#60;td&#62;Username&#60;/td&#62; &#60;td&#62;&#60;input name="Username" type="text" class="Input"&#62;
+	 &#60;span style="background-color:oldlace; color:maroon;"&#62;username1&#60;/span&#62;&#60;/td&#62;&#60;/tr&#62;
+ &#60;tr&#62;&#60;td&#62;Password &#60;/td&#62;&#60;td&#62;&#60;input name="Password" type="password" class="Input"&#62;
+	 &#60;span style="background-color:oldlace; color:maroon;"&#62;password1&#60;/span&#62;&#60;/td&#62;
+	 &#60;/tr&#62;
+ &#60;tr&#62; &#60;td&#62;&#60;input name="Submit" type="submit" value="Login" style=" cursor:pointer !important;"&#62;
+	 &#60;/td&#62;&#60;td&#62; &#60;/td&#62;&#60;/tr&#62;	
+ &#60;/table&#62;
+&#60;/form&#62; 
+
+</pre>
+
+
+
+
+<p class="text-xmp-sub">
+Porzione di codice html per inserire i dati <i>username password</i> necessari per php 
+al fine di aprire una sessione di lavoro.
+</p>
+
+<!--
+<xmp class="text-xmp">
+<div>
+ <?php session_start(); /* Starts the session */
+ session_destroy(); /* Destroy started session */
+ header("location:test.php"); /* Redirect to login page */
+ exit;
+ ?>
+</div>
+</xmp>
+-->
+
+
+<pre class="text-xmp">
+
+&#60;div&#62;
+ &#60;?php session_start&#40;&#41;; /* Starts the session */
+ session_destroy&#40;&#41;; /* Destroy started session */
+ header&#40;"location:test.php"&#41;; /* Redirect to login page */
+ exit;
+ ?&#62;
+&#60;/div&#62;
+
+</pre>
+
+
+<p class="text-xmp-sub">
+L'uscita dalla sessione di lavoro viene eseguita dal codice di log out. La 
+fase di logout può diventare molto importante dato che se una sessione viene 
+lasciata aperta chiunque può accedere ai dati del file.php senza conoscere 	
+username e password. Per ovviare a questo inconveniente si può mettere un 
+contatore a rovescio (ad esempio ogni secondo) a scandire la fine della sessione 
+<a id="nota_indietro_002" href="#nota_002" class="text-link-note">2</a>
+</p>
+<p style="font-size:small !important;">
+<cite>Da tenere presente che un vero fine sessione</cite> comporterebbe una 
+interruzione quando l'user non esegue alcuna operazione per un determinato 
+periodo di tempo. Qui invece la sessione viene staccata comunque vadano le cose. Per 
+questo è utile inserire un visualizzatore del tempo rimanente affinché user 
+non sia sorpreso dalla fine della sessione.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<p id="argomento_struttura_base" class="my-5"><hr/></p>
+<p class="text-titoletto">
+
+	Struttura 
+
+	<a href="#struttura_pagina_html" style="font-size:small !important;">[*]</a> 
+	<a href="#esempio_main" style="font-size:small !important;">[**]</a>
+	<a href="#template_generico" style="font-size:small !important;">[***]</a>
+	<a href="#argomento_template" style="font-size:small !important;font-weight:bold !important;">
+	[****]</a>
+</p>
+<p class="text-normale-commento giust">
+Arriviamo ora alla struttura html da cui normalmente si inizia ma 
+qui appare <i>dopo</i> seguendo una linea di pensiero <u>bottom-up</u>.
+</p>
+<p class="text-normale-commento giust">
+Quando si crea il DGEBI si digita la combinazione <i>ID script</i> la quale 
+è molto lieve però nasconde il meccanismo di funzionamento. Alcune porzioni di 
+codice devono però assolutamente essere scritti in html. 
+<span class="text-normale-commento-reverse">
+Per non parlare dei <i>magic numbers</i> vale a dire "trucchi" per 
+risolvere alcuni problemi di aggiustamento strutturale (hacking)
+</span>. Se non vengono sottolineati e commentati riesce poi difficile 
+rintracciarne sia la funzione che la corretta scrittura.
+</p>
+<xmp class="text-xmp">
+<!DOCTYPE html>	
+</xmp>
+<p class="text-normale">Definisce il tipo di html</p>
+<xmp class="text-xmp">
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
+</xmp>
+<p class="text-normale">Il contenitore del codice. 
+<span class="text-normale-commento-reverse">
+Qui inizia la sequenza di elementi html aventi la caratteristica di 
+separatori o linee di serialità nella esecuzione del codice html
+</span><span class="text-normale-commento-reverse"> considerare 
+ogni elemento come una linea alla quale sono appesi come fogli dei comandi. 
+Definire un width height di un div non significa altro che fornire una 
+grandezza alla linea di appoggio dei comandi seguenti.
+</span>
+</p>
+
+
+<xmp class="text-xmp">
+<head>
+</xmp>
+<p class="text-normale">Rappresenta il posto nel quale si dovrebbero 
+	inserire i fogli di stile e altre dipendenze del programma html ad 
+	esempio i CDN <i>come visto nella sezione asincrono tramite script 
+	si possono aggiungere a head i link necessari</i>.
+</p>
+
+
+<xmp class="text-xmp">
+<meta charset="utf-8">
+</xmp>
+<p class="text-normale">
+Molto importante per la decodifica dei caratteri europei.
+</p>
+
+
+<xmp class="text-xmp">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+</xmp>
+<p class="text-normale">
+Necessario per il responsive e cross browser.	
+</p>
+
+<xmp class="text-xmp">
+<title>
+</xmp>
+<p class="text-normale">Titolo della pagina visualizzata</p>
+
+
+<p class="text-normale-commento-reverse">
+Allorquando siano stabilizzati i codici css js di bootstrap 
+si possono inserire in head senza sincronizzarli.
+</p>
+
+
+
+<xmp class="text-xmp">
+
+<script src="bs/kickstart/bsnr_kickstart_test/default.js"></script>
+
+</xmp>
+<p class="text-normale">
+Fornisce i codici css js base di bootstrap localizzati.
+</p>
+
+
+
+
+
+
+<xmp class="text-xmp">
+
+<script src="bs/kickstart/piedipagina_menu_test/default.js"></script>
+
+</xmp>
+<p class="text-normale">
+Fornisce il menu in fondo alla pagina in modo da poter spostarsi 
+tra i link interni ed esterni.
+<u>Come detto è possibile con javascript creare in head 
+una <i>var radice</i> che permette di personalizzare il dominio nel quale 
+sono archiviati i files.
+<a href="http://beatsupernovarasa.altervista.org/radice/radice.js" 
+class="text-link-generico">un_esempio_di_radice</a>
+</u>
+</p>
+
+
+
+<xmp class="text-xmp">
+
+<link href="bs/kickstart/tablone_aggiunte_test/default.js" rel="stylesheet" />
+
+</xmp>
+<p class="text-normale">Fogli di stile personalizzati</p>
+
+
+
+
+<p class="text-normale-commento gius">
+Veniamo ora ai magic numbers. Sostanzialment sono dei <i>border</i> 
+posizionati in valori rem dedicati soprattutto alla gestione della 
+visualizzazione su dispositivi come smarphone o tablet.
+</p>
+
+<xmp class="text-xmp">
+<body style="border-right:solid 0.2rem indigo !important;">
+</xmp>
+<p class="text-normale">Aggiusta il body.</p>
+
+<p id="struttura_pagina_html"></p>
+
+<p class="text-titoletto">
+Composizione di una struttura base pagina in html
+</p>
+
+<!--
+<xmp class="text-xmp">
+
+<!DOCTYPE html>	
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title></title>
+
+<link href="http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" rel="stylesheet" />
+
+<style>
+	html * {font-family: 'PT Mono', monospace !important;} 
+</style>
+
+</head>
+
+<body style="border-right:solid 0.2rem indigo !important;">
+
+
+<div id="bsnr_kickstart_test">bug bsnr_kickstart_test</div>
+<script src="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js"></script>
+
+<div id="piedipagina_menu_test">bug piedipagina_menu_test</div>
+<script src="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/piedipagina_menu_test/default.js"></script>
+
+
+<div id="spinner" class="spinner-border text-warning" style="position:fixed; top:2.5rem; left:0; background-color:oldlace;"></div>
+
+</body>
+
+</html>
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;!DOCTYPE html&#62;	
+&#60;html lang&#61;"it" xmlns&#61;"http://www.w3.org/1999/xhtml"&#62;
+&#60;head&#62;
+&#60;meta charset&#61;"utf-8"&#62;
+&#60;meta name&#61;"viewport" content&#61;"width&#61;device-width, initial-scale&#61;1, shrink-to-fit&#61;no"&#62;
+
+&#60;title&#62;&#60;/title&#62;
+
+&#60;link href&#61;"http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" rel&#61;"stylesheet" /&#62;
+
+&#60;style&#62;
+	html * {font-family: 'PT Mono', monospace !important;} 
+&#60;/style&#62;
+
+&#60;/head&#62;
+
+&#60;body style&#61;"border-right:solid 0.2rem indigo !important;"&#62;
+
+
+&#60;div id&#61;"bsnr_kickstart_test"&#62;bug bsnr_kickstart_test&#60;/div&#62;
+&#60;script src&#61;"http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js"&#62;&#60;/script&#62;
+
+&#60;div id&#61;"piedipagina_menu_test"&#62;bug piedipagina_menu_test&#60;/div&#62;
+&#60;script src&#61;"http://beatsupernovarasa.altervista.org/zap/bs/kickstart/piedipagina_menu_test/default.js"&#62;&#60;/script&#62;
+
+
+&#60;div id&#61;"spinner" class&#61;"spinner-border text-warning" style&#61;"position:fixed; top:2.5rem; left:0; background-color:oldlace;"&#62;&#60;/div&#62;
+
+&#60;/body&#62;
+
+&#60;/html&#62;
+
+</pre>
+
+
+
+<p class="text-normale">
+I due DGEBI vanno inseriti esattamente in questa posizione altrimenti non funzionano. 
+Rispettare la precedenza prima gli <i>id</i> poi gli <i>script</i>. Lo id dello spinner 
+agisce su una funzione script presente in <i>bsnr_kickstart_test</i>. In <u>head</u> è
+posizionato uno style che istruisce la pagina ad usare <u>monospace PT</u>. Assieme al 
+magic patch in <u>body</u> questo è un fuorisacco, e un candidato ad essere inserito 
+in un aggiornamento di <i>bsnr_kickstart_test</i>.
+
+<a id="nota_indietro_004" href="#nota_004" class="note-cerchietto">
+	4
+</a>
+
+</p>
+<p class="text-normale-commento-reverse">
+La struttura base qui presentata è mancante di <u>main</u> il quale è un contenitore 
+delle informazioni da veicolare con la pagina. Il main è una struttura di secondo livello 
+appartenente al <i>user</i>. 
+</p>
+<p class="text-titoletto">
+Linee guida per main.
+</p>
+
+<p class="text-normale-commento">
+Il main ha come ossatura <i>table</i>.
+</p>
+<div style="margin-left:0rem !important; 
+width:100% !important; height:auto !important; 
+ border:solid 0.1rem blue !important; 
+ overflow:auto !important; 
+ text-align:center !important;">
+ <i>table</i>
+</div>
+
+
+
+
+<div class="row" style="margin-left:0rem !important; 
+ width:100% !important; height:30rem!important;
+ border:solid 0.1rem blue !important; ">
+
+	<div style="width:10% !important; height:30rem!important;
+	border:solid 0.2rem red !important; ">
+	td
+	</div>
+
+	<div style="width:90% !important; height:30rem!important;
+	border:solid 0.2rem green !important; ">
+	td
+
+		<div class="row" 
+		style="height:25rem !important; 
+		
+		background-color:rgba(255,170,1,0.5) !important;
+		border:solid 0.2rem magenta !important;
+		text-align: center !important;">
+			<p style="
+			font-weight:bold !important;
+			font-variant:small-caps !important;">
+				tablette</p>
+
+			<div class="row" 
+			style="margin-top:-10rem !important; 
+			margin-left:0rem !important;
+			background-color:rgba(255,170,1,0.5) !important;
+			border:solid 0.2rem lightgreen !important">
+				td
+
+				<div class="row" 
+				style="margin-top:3rem !important;
+				background-color:oldlace !important;
+				border:solid 0.2rem cyan !important">
+					sections
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>
+
+
+
+
+
+
+<p class="text-normale-commento">
+Come si può vedere dallo schema c'è una <u>main table</u> suddivisa in 
+due colonne di cui quella a sinistra di larghezza molto minore della seconda. 
+All'interno della colonna di destra è contenuta un'altra tavola <u>tablette</u> 
+la quale ha una sola colonna. Nella colonna tablette ci stanno le section 
+con le informazioni.
+</p>
+<p class="text-normale-commento-reverse" 
+style="font-size:small !important;">
+L'elemento table è molto utile come involucro per le informazioni ma 
+occorre lasciarlo a livello di strutturazione.
+</p>
+
+<!--
+<xmp class="text-xmp">
+<main> 
+
+<header class="titolo"> 
+<blockquote class="text-center clearfix"> 
+ <div class="overflow-auto"> 
+ titolo main <span style="font-size:2rem !important; ">&#91;table_tablette_sections&#93;</span> 
+ </div> 
+</blockquote> 
+</header> 
+
+ <table class="table"> 
+ <tbody> 
+ <tr> 
+ 
+ <td id="colonna-sinistra" class="p-0 colonna-sinistra"> </td>
+
+ <td>
+
+	 <table class="table"> 
+	 <tr> 
+	 <td class="clearfix"> 
+		&#91;qui le sezioni&#93; 
+	 </td> 
+	 </tr> 
+	 </table> 
+
+ </td> 
+ </tr> 
+ </tbody> 
+ </table> 
+ 
+</main>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;main&#62; 
+
+&#60;header class&#61;"titolo"&#62; 
+&#60;blockquote class&#61;"text-center clearfix"&#62; 
+ &#60;div class&#61;"overflow-auto"&#62; 
+ titolo main &#60;span style&#61;"font-size:2rem !important; "&#62;&#91;table_tablette_sections&#93;&#60;/span&#62; 
+ &#60;/div&#62; 
+&#60;/blockquote&#62; 
+&#60;/header&#62; 
+
+ &#60;table class&#61;"table"&#62; 
+ &#60;tbody&#62; 
+ &#60;tr&#62; 
+ 
+ &#60;td id&#61;"colonna-sinistra" class&#61;"p-0 colonna-sinistra"&#62; &#60;/td&#62;
+
+ &#60;td&#62;
+
+	 &#60;table class&#61;"table"&#62; 
+	 &#60;tr&#62; 
+	 &#60;td class&#61;"clearfix"&#62; 
+		&#91;qui le sezioni&#93; 
+	 &#60;/td&#62; 
+	 &#60;/tr&#62; 
+	 &#60;/table&#62; 
+
+ &#60;/td&#62; 
+ &#60;/tr&#62; 
+ &#60;/tbody&#62; 
+ &#60;/table&#62; 
+ 
+&#60;/main&#62; 
+
+</pre>
+
+
+
+
+
+<p class="text-normale">
+Il <i>main</i> sarà poi "compilato" in DGEBI e richiede 
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" 
+class="text-link-generico">tablone.css</a>
+</p>
+<p class="text-normale-commento-reverse">
+La table usa la <i>class table</i> di bootstrap che da sola risolve abbastanza. 
+In <i>tablone.css</i> si ha una aggiunta 
+
+<xmp>
+table{ table-layout: fixed !important; width:100% !important; }
+</xmp>
+</p>
+
+<p class="text-normale-commento">
+Come sempre occorre tener presente <i>overflow:auto !important;</i> 
+oppure con classe bootstrap <u>class="overflow-auto"</u> 
+</p>
+<p class="text-normale-commento">
+Vista la composizione di table in due colonne e dato sinistra minore di 
+destra si usa la classe <u>colonna-sinistra</u> 
+<!--
+<xmp class="text-xmp">
+
+.colonna-sinistra{
+background-color:rgba(255,170,0,0.25) !important; 
+width:5rem !important; width:2.3rem !important; 
+}
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+.colonna-sinistra&#123;
+background-color:rgba(255,170,0,0.25) !important; 
+width:5rem !important; width:2.3rem !important; 
+&#125;
+
+</pre>
+
+
+
+</p>
+<p class="text-xmp-sub">
+Il dato importante è <i>width</i> che definisce la larghezza della colonnina.
+</p>
+
+<p id="esempio_main"></p>
+
+
+<div>
+
+<header class="titolo"> 
+<blockquote class="text-center clearfix"> 
+ <div class="overflow-auto"> 
+ titolo main <span style="font-size:2rem !important; ">&#91;table_tablette_sections&#93;</span> 
+ </div> 
+</blockquote> 
+</header> 
+
+ <table class="table" style="border:solid 0.1rem blue !important;"> 
+ <tbody> 
+ <tr> 
+ 
+ <td id="colonna-sinistra" class="p-0 colonna-sinistra" style="border:solid 0.1rem red !important;"> </td>
+
+ <td style="border:solid 0.1rem green !important;">
+
+	 <table class="table" style="border:solid 0.2rem magenta !important;"> 
+	 <tr class="p-2"> 
+	 <td class="clearfix"> 
+		<div class="text-center" style="border:solid 0.2rem lightgreen !important;">
+			&#91;qui le sezioni&#93; 
+			<section>
+				01234567890123456789012345678901234567890123456789012345678901234567890123456789
+			</section>
+		</div>
+	 </td> 
+	 </tr> 
+	 </table> 
+
+ </td> 
+ </tr> 
+ </tbody> 
+ </table> 
+
+
+</div>
+<!-- esempio FUNZIONANTE di main tablone tablette fin -->
+
+<p class="text-normale">
+L'inserimento delle sections presuppone esse non forino la barriera del <i>td</i> 
+è necessario avere attenzione per <u>overflow</u>.
+</p>
+<p class="text-normale-commento-reverse" style="padding-left:1rem !important;border-left:solid 2rem red !important;">
+Fare molta attenzione ad un drawback in Chrome che riconosce (in modo errato) 
+il segno <i>meno</i> come spazio e quindi non applica <u>overflow</u>
+
+<a id="nota_indietro_003" 
+href="#nota_003" class="text-link-note" 
+style="/* font-size:small !important; 
+font-weight:bold !important; */ ">
+(3)
+</a>
+
+</p>
+
+
+
+
+
+
+
+<p id="template_generico" class="text-titoletto">
+	Assemblaggio di un template generico
+</p>
+
+<!--
+<xmp class="text-xmp">
+
+
+<!DOCTYPE html>	
+<html lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title></title>
+
+<script src="http://beatsupernovarasa.altervista.org/radice/radice.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+
+<link href="http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" rel="stylesheet" />
+
+<style>
+	html * {font-family: 'PT Mono', monospace !important;} 
+</style>
+
+</head>
+
+<body style="border-right:solid 0.2rem indigo !important;">
+
+<main> 
+
+<header class="titolo"> 
+<blockquote class="text-center clearfix"> 
+ <div class="overflow-auto"> 
+ titolo main <span style="font-size:2rem !important; ">&#91;table_tablette_sections&#93;</span> 
+ </div> 
+</blockquote> 
+</header> 
+
+ <table class="table"> 
+ <tbody> 
+ <tr> 
+ 
+ <td id="colonna-sinistra" class="p-0 colonna-sinistra"> </td>
+
+ <td>
+
+	 <table class="table"> 
+	 <tr> 
+	 <td class="clearfix"> 
+		&#91;qui le sezioni&#93;
+		<section>
+			01234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-123456789
+		</section> 
+	 </td> 
+	 </tr> 
+	 </table> 
+
+ </td> 
+ </tr> 
+ </tbody> 
+ </table> 
+ 
+</main>
+
+
+
+<div id="bsnr_kickstart_test">
+bug bsnr_kickstart_test
+</div>
+<script src="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js"></script>
+
+<div id="piedipagina_menu_test" class="versionedelprogramma">
+bug piedipagina_menu_test
+</div>
+<script src="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/piedipagina_menu_test/default.js"></script>
+
+
+<aside>
+ <span class="position-fixed bottom-0 right-0 m-1 versionedelprogramma">
+ <span onclick="showElement()" class="vedi">&nbsp;</span>
+ <span onclick="hideElement()" class="nascondi">&nbsp;</span>
+ </span>
+</aside>
+
+<div id="spinner" class="spinner-border text-warning" 
+style="position:fixed; top:2.5rem; left:0; 
+background-color:oldlace;"></div>
+
+</body>
+
+</html>
+
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;!DOCTYPE html&#62;	
+&#60;html lang&#61;"it" xmlns&#61;"http:&#47;&#47;www.w3.org&#47;1999&#47;xhtml"&#62;
+&#60;head&#62;
+&#60;meta charset&#61;"utf-8"&#62;
+&#60;meta name&#61;"viewport" content&#61;"width&#61;device-width, initial-scale&#61;1, shrink-to-fit&#61;no"&#62;
+
+&#60;title&#62;&#60;&#47;title&#62;
+
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;radice&#47;radice.js"&#62;&#60;&#47;script&#62;
+
+&#60;script src&#61;"https:&#47;&#47;ajax.googleapis.com&#47;ajax&#47;libs&#47;jquery&#47;3.5.1&#47;jquery.min.js"&#62;&#60;&#47;script&#62;
+
+
+
+&#60;link href&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;tablone&#47;default.css" rel&#61;"stylesheet" &#47;&#62;
+
+&#60;style&#62;
+	html * {font-family: 'PT Mono', monospace !important;} 
+&#60;&#47;style&#62;
+
+&#60;&#47;head&#62;
+
+&#60;body style&#61;"border-right:solid 0.2rem indigo !important;"&#62;
+
+&#60;main&#62; 
+
+&#60;header class&#61;"titolo"&#62; 
+&#60;blockquote class&#61;"text-center clearfix"&#62; 
+ &#60;div class&#61;"overflow-auto"&#62; 
+ titolo main &#60;span style&#61;"font-size:2rem !important; "&#62;&#91;table_tablette_sections&#93;&#60;&#47;span&#62; 
+ &#60;&#47;div&#62; 
+&#60;&#47;blockquote&#62; 
+&#60;&#47;header&#62; 
+
+ &#60;table class&#61;"table"&#62; 
+ &#60;tbody&#62; 
+ &#60;tr&#62; 
+ 
+ &#60;td id&#61;"colonna-sinistra" class&#61;"p-0 colonna-sinistra"&#62; &#60;&#47;td&#62;
+
+ &#60;td&#62;
+
+	 &#60;table class&#61;"table"&#62; 
+	 &#60;tr&#62; 
+	 &#60;td class&#61;"clearfix"&#62; 
+		&#91;qui le sezioni&#93;
+		&#60;section&#62;
+			01234567890-1234567890-1234567890-1234567890-1234567890-1234567890-1234567890-123456789
+		&#60;&#47;section&#62; 
+	 &#60;&#47;td&#62; 
+	 &#60;&#47;tr&#62; 
+	 &#60;&#47;table&#62; 
+
+ &#60;&#47;td&#62; 
+ &#60;&#47;tr&#62; 
+ &#60;&#47;tbody&#62; 
+ &#60;&#47;table&#62; 
+ 
+&#60;&#47;main&#62;
+
+
+
+&#60;div id&#61;"bsnr_kickstart_test"&#62;
+bug bsnr_kickstart_test
+&#60;&#47;div&#62;
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;bsnr_kickstart_test&#47;default.js"&#62;&#60;&#47;script&#62;
+
+&#60;div id&#61;"piedipagina_menu_test" class&#61;"versionedelprogramma"&#62;
+bug piedipagina_menu_test
+&#60;&#47;div&#62;
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;piedipagina_menu_test&#47;default.js"&#62;&#60;&#47;script&#62;
+
+
+&#60;aside&#62;
+ &#60;span class&#61;"position-fixed bottom-0 right-0 m-1 versionedelprogramma"&#62;
+ &#60;span onclick&#61;"showElement()" class&#61;"vedi"&#62;&nbsp;&#60;&#47;span&#62;
+ &#60;span onclick&#61;"hideElement()" class&#61;"nascondi"&#62;&nbsp;&#60;&#47;span&#62;
+ &#60;&#47;span&#62;
+&#60;&#47;aside&#62;
+
+&#60;div id&#61;"spinner" class&#61;"spinner-border text-warning" 
+style&#61;"position:fixed; top:2.5rem; left:0; 
+background-color:oldlace;"&#62;&#60;&#47;div&#62;
+
+&#60;&#47;body&#62;
+
+&#60;&#47;html&#62;
+
+</pre>
+
+
+<!-- PORZIONE DI CODICE TEMPLATE FIN -->
+
+<p class="text-normale-commento p-1 rounded gius" style="background-color:var(--bs-indigo) !important;">
+	Come si può notare la colonnina è lasciata vuota, vale a dire a disposizione di 
+	codice. Qui si può inserire un DGEBI che utilizza un array di immagini come per 
+	fornire una serie di immagini come sfondo.
+</p>
+
+
+
+<p class="text-normale-commento">
+	<a id="nota_indietro_005" href="#nota_005" class="note-cerchietto">
+		5
+	</a>
+
+Un'altra versione dello stesso framework in <u>toggle</u> dove il menu 
+a piedi pagina può essere rimosso per esigenze di migliore 
+visualizzazione appunto con tasto toggle .
+<span class="btn btn-info btn-sm my-3 px-1 fw-bold" 
+onclick="copyToClipboard('#copyToClipboardFramework2')">
+	copy</span>
+</p>
+<pre id="copyToClipboardFramework1" style="display:none !important;">
+	&#60;!DOCTYPE html&#62;	
+	&#60;html lang&#61;&#34;it&#34; xmlns&#61;&#34;http://www.w3.org/1999/xhtml&#34;&#62;
+	&#60;head&#62;
+	&#60;meta charset&#61;&#34;utf-8&#34;&#62;
+	&#60;meta name&#61;&#34;viewport&#34; content&#61;&#34;width&#61;device-width, initial-scale&#61;1, shrink-to-fit&#61;no&#34;&#62;
+	
+	&#60;title&#62; 1245 TEMPLATE MAGIC LIGHT 20201220&#60;/title&#62;
+	
+	&#60;script src&#61;&#34;http://beatsupernovarasa.altervista.org/radice/radice.js&#34;&#62;&#60;/script&#62;
+	
+	&#60;/head&#62;
+	
+	&#60;body&#62;
+	
+	&#60;main&#62; 
+	
+	
+	&#60;header class&#61;&#34;titolo&#34;&#62; 
+	&#60;blockquote class&#61;&#34;text-center&#34;&#62; 
+	 &#60;div class&#61;&#34;overflow-auto&#34;&#62; 
+	 titolo main &#60;span style&#61;&#34;font-size:2rem !important; &#34;&#62;&#91;table_tablette_sections&#93;&#60;/span&#62; 
+	 &#60;/div&#62; 
+	&#60;/blockquote&#62; 
+	&#60;/header&#62; 
+	
+	 &#60;table class&#61;&#34;table&#34;&#62; 
+	 &#60;tbody&#62; 
+	 &#60;tr&#62; 
+	 
+	 &#60;td id&#61;&#34;colonna-sinistra&#34; class&#61;&#34;p-0 colonna-sinistra&#34;&#62; &#60;/td&#62;
+	
+	 &#60;td&#62;
+	
+		 &#60;table class&#61;&#34;table&#34;&#62; 
+		 &#60;tr&#62; 
+		 &#60;td&#62; 
+			&#91;qui le sezioni&#93;
+			&#60;section&#62;
+				01234567890123456789012345678901234567890123456789012345678901234567890123456789
+			&#60;/section&#62; 
+		 &#60;/td&#62; 
+		 &#60;/tr&#62; 
+		 &#60;/table&#62; 
+	
+	 &#60;/td&#62; 
+	 &#60;/tr&#62; 
+	 &#60;/tbody&#62; 
+	 &#60;/table&#62; 
+	 
+	&#60;/main&#62;
+	
+	
+	
+	&#60;div id&#61;&#34;bsnr_kickstart_test&#34;&#62;bug bsnr_kickstart_test&#60;/div&#62;
+	
+	&#60;div id&#61;&#34;piedipagina_menu_test&#34; class&#61;&#34;versionedelprogramma&#34;&#62;bug piedipagina_menu_test&#60;/div&#62;
+	
+	&#60;div id&#61;&#34;show_hide&#34;&#62;bug show_hide&#60;/div&#62;
+	
+	&#60;div id&#61;&#34;spinner&#34; class&#61;&#34;spinner-border text-warning spinner_dashed&#34;&#62;&#60;/div&#62;
+	
+	&#60;script src&#61;&#34;http://beatsupernovarasa.altervista.org/zap/bs/kickstart/default.js&#34;&#62;&#60;/script&#62;
+	
+	
+	&#60;/body&#62;
+	
+	&#60;/html&#62;
+	
+	</pre>
+
+	
+	<pre id="copyToClipboardFramework2">
+
+
+
+&#60;!DOCTYPE html&#62;
+&#60;html id&#61;"html" lang&#61;"en" xmlns&#61;"http:&#47;&#47;www.w3.org&#47;1999&#47;xhtml"&#62;
+&#60;head&#62;
+ &#60;meta charset&#61;"utf-8"&#62;
+ &#60;meta name&#61;"viewport" 
+ content&#61;"width&#61;device-width, initial-scale&#61;1, shrink-to-fit&#61;no"&#62;
+
+
+ &#60;title&#62;
+ 1700 bmu_togglato --- MAGIC PATCHES 20201228
+
+ 20191119f_1-CREEK 20200704-0810_by_odlanir - Altervista
+ &#60;&#47;title&#62;
+
+&#60;!-- root link --&#62;
+&#60;!-- http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47; --&#62;
+ &#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;radice&#47;radice.js"&#62;&#60;&#47;script&#62;
+&#60;style&#62;
+&#47;* queste variazioni o aggiunte vanno archiviate in BS&#47;DEFAULT.JS *&#47;
+.promemoria{border:solid 0rem red !important;
+border-left:solid 0.5rem indigo !important;
+ }
+
+.promemoria:hover .text-promemoria{
+width:50%;height:auto;
+ animation: fadeIn ease 4.1s; 
+ -webkit-animation: fadeIn ease 4.1s; 
+ -moz-animation: fadeIn ease 4.1s; 
+ -o-animation: fadeIn ease 4.1s; 
+ -ms-animation: fadeIn ease 4.1s;
+ overflow:auto !important;
+ font-style:normal !important;
+ border-left:solid 1rem indigo !important;
+ 
+display:block;
+}
+
+.text-promemoria{display:none; background-color:var&#40;--bs-indigo&#41;; color:oldlace;border-radius:0.2rem;}
+
+ .dissolvenza { 
+ animation: fadeIn ease 2.5s; 
+ -webkit-animation: fadeIn ease 2.5s; 
+ -moz-animation: fadeIn ease 2.5s; 
+ -o-animation: fadeIn ease 2.5s; 
+ -ms-animation: fadeIn ease 2.5s; 
+ } 
+ 
+ 
+ @keyframes fadeIn { 
+ 0% {opacity:0;} 
+ 100% {opacity:1;} 
+ } 
+ 
+
+
+&#60;&#47;style&#62;
+
+&#60;style&#62;
+:root {background-color:rgba&#40;255,170,0,0.5&#41;; }
+
+html * {font-family:'PT Mono' !important;}
+
+body{ background-color:default; }
+&#60;&#47;style&#62;
+
+&#60;&#47;head&#62;
+
+
+&#60;!-- body with magic patch style --&#62;
+&#60;body id&#61;"body" onload&#61;"pausa&#40;&#41;" style&#61;"visibility:hidden;"&#62;
+&#60;main&#62;
+
+
+
+
+&#60;&#47;main&#62;
+
+&#60;div id&#61;"bsnr_kickstart_test"&#62;bug bsnr_kickstart_test&#60;&#47;div&#62;
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;bsnr_kickstart_test&#47;default.js"&#62;&#60;&#47;script&#62;
+
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;tablone&#47;default.js"&#62;&#60;&#47;script&#62;
+
+
+
+&#60;div id&#61;"piedipagina_menu_togglato" class&#61;"vedoXoY" &#62;bug piedipagina_menu_togglato&#60;&#47;div&#62;
+&#60;script&#62;
+document.getElementById&#40;"piedipagina_menu_togglato"&#41;.innerHTML&#61;
+' &#60;section style&#61;"position:fixed; bottom:0; left:0;'+
+' border-bottom:solid 1rem transparent !important; '+
+' border-left:solid 0.5rem transparent !important;'+
+' border-right:solid 0.5rem transparent !important;'+
+ 
+' width:100%; text-align:left; "&#62; '+
+
+' &#60;span style&#61;"margin-right:2.3rem !important;'+
+' padding:0.2rem;'+
+' background-color:oldlace; '+
+' border-radius:0.4rem !important;'+
+' border:solid 0.05rem navy !important;"&#62; '+ 	
+' '+ 	
+
+' &#60;button type&#61;"button" class&#61;"btn shadow-none bg-warning rounded" '+ 	
+' data-toggle&#61;"collapse" data-target&#61;"#collapsemenuapdp" '+ 	
+' aria-expanded&#61;"false" '+ 	
+' style&#61;"position:fixed; top:2.5rem; right:0; &#47;* border-radius:0rem !important; border:solid 0rem black; *&#47; "&#62; '+ 	
+' '+ 	
+' &#60;svg width&#61;"1em" height&#61;"1em" viewBox&#61;"0 0 16 16" class&#61;"bi bi-back" fill&#61;"currentColor" xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg"&#62;&#60;path fill-rule&#61;"evenodd" d&#61;"M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"&#47;&#62; '+ 	
+' &#60;&#47;svg&#62; '+ 	' '+ 	
+' &#60;&#47;button&#62; '+	 	
+
+
+' &#60;span style&#61;"visibility:hidden !important;"&#62;menu&#60;&#47;span&#62; '+
+
+
+' &#60;a href&#61;"#fine"&#62; '+ 	
+' &#60;svg xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg" height&#61;"24" viewBox&#61;"0 0 24 24" width&#61;"24"&#62;&#60;path d&#61;"M0 0h24v24H0V0z" fill&#61;"none" &#47;&#62; &#60;path fill&#61;"maroon" d&#61;"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"&#47;&#62; '+ 	
+' &#60;&#47;svg&#62;&#60;&#47;a&#62; '+ 	
+' &#60;span style&#61;"visibility:hidden !important;"&#62;menu&#60;&#47;span&#62; '+ 	
+' '+ 	
+
+' &#60;a href&#61;"#"&#62; '+ 	
+' &#60;svg xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg" height&#61;"24" viewBox&#61;"0 0 24 24" width&#61;"24"&#62; &#60;path d&#61;"M0 0h24v24H0V0z" fill&#61;"none"&#47;&#62; &#60;path fill&#61;"maroon" d&#61;"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"&#47;&#62; '+ 	
+' &#60;&#47;svg&#62;&#60;&#47;a&#62; '+ 	
+' '+	 	
+' &#60;&#47;span&#62; '+ 
+
+' '+ 	' '+ 	' '+ 	' '+ 	
+
+
+' '+ 	' '+ 	
+' '+ 	' '+ 	
+
+' &#60;div id&#61;"collapsemenuapdp" '+
+' class&#61;"collapse dropdown-menuY border-0" '+ 	
+' style&#61;" padding:0rem !important; '+ 	
+' '+ 	
+' background-color:rgba&#40;0,85,85,0&#41;; '+ 	
+' border-left:solid 0.1rem rgba&#40;255,170,0,1&#41; !important; '+ 	
+' border-radius:0rem !important; '+ 	
+' background-color:rgba&#40;255,170,0,0.85&#41;; "&#62; '+ 
+
+
+' &#60;ul style&#61;"border:solid 0.25rem indigo !important; '+
+' height:11.5rem !important; '+
+' overflow:auto !important; border-radius:0.2rem !important; "&#62;'+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_spinner"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' spinner&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_asincrono"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' asincrono&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_font"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' font&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_collapse"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' collapse&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_sign_in"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' sign_in&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+
+
+' 	&#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"#argomento_struttura_base"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' struttura&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+
+
+' &#60;p class&#61;"my-1"&#62;&#60;hr&#47;&#62;&#60;&#47;p&#62; '+
+' &#60;span style&#61;"font-size:small !important;font-weight:bold !important;"&#62;'+
+' note: &#60;&#47;span&#62; '+
+' '+
+' &#60;a href&#61;"#nota_001" class&#61;"note-cerchietto mr-1"&#62; '+
+' 1 &#60;&#47;a&#62; '+
+
+' &#60;a href&#61;"#nota_002" class&#61;"note-cerchietto mr-1"&#62; '+
+' 2 &#60;&#47;a&#62; '+
+
+' &#60;a href&#61;"#nota_003" class&#61;"note-cerchietto mr-1"&#62; '+
+' 3 &#60;&#47;a&#62; '+
+
+
+' &#60;a href&#61;"#nota_004" class&#61;"note-cerchietto mr-1"&#62; '+
+' 4 &#60;&#47;a&#62; '+
+
+
+' &#60;a href&#61;"#nota_005" class&#61;"note-cerchietto mr-1"&#62; '+
+' 5 &#60;&#47;a&#62; '+
+
+' &#60;a href&#61;"#nota_006" class&#61;"note-cerchietto mr-1"&#62; '+
+' 6 &#60;&#47;a&#62; '+
+
+
+
+' '+
+' '+
+' '+
+
+
+' 	 '+ 	' '+ 	
+' &#60;&#47;ul&#62; '+
+
+' &#60;span class&#61;"p-0" style&#61;"font-size:small !important; background-color:indigo;color:oldlace;"&#62;	 '+ 	
+' alfabeta 20201228_1530 '+
+' &#60;&#47;span&#62;	 '+
+
+
+' 	&#60;a class&#61;"ml-2 btn-warning rounded" '+ 
+' href&#61;"http:&#47;&#47;venexiatre.altervista.org&#47;WORKOU&#47;OGGI&#47;20191119&#47;20191119f_1-CREEK.html"&#62; '+ 	
+' 	&#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:oldlace;color:indigo;border:solid 0.1rem indigo;box-shadow:0.2rem 0.2rem 0.4rem black !important;"&#62;'+
+' home_page&#60;&#47;span&#62;&#60;&#47;a&#62; '+ 
+
+' &#60;&#47;div&#62; '+
+' '+
+' &#60;&#47;section&#62; '+
+
+'';
+
+&#47;* vedi nascondi bottoni separati 
+ 
+ function showElement&#40;&#41; { 
+			 element &#61; document.querySelector&#40;'.versionedelprogramma'&#41;; 
+			 element.style.visibility &#61; 'visible'; 
+		 } 
+ 
+ function hideElement&#40;&#41; { 
+			 element &#61; document.querySelector&#40;'.versionedelprogramma'&#41;; 
+			 element.style.visibility &#61; 'hidden'; 
+		 } 
+ *&#47;
+ 
+ 
+ 
+
+
+
+
+&#47;*
+How to copy TEXT to Clipboard on Button-Click
+A Pen By Shaik Maqsood
+
+https:&#47;&#47;codepen.io&#47;shaikmaqsood&#47;pen&#47;XmydxJ
+*&#47;
+
+function copyToClipboard&#40;element&#41; {
+var $temp &#61; $&#40;"&#60;input&#62;"&#41;;
+$&#40;"body"&#41;.append&#40;$temp&#41;;
+$temp.val&#40;$&#40;element&#41;.text&#40;&#41;&#41;.select&#40;&#41;;
+document.execCommand&#40;"copy"&#41;;
+$temp.remove&#40;&#41;;
+}
+&#60;&#47;script&#62;
+
+
+
+
+&#60;span id&#61;"vedoXoY"&#62;bug vedoXoY&#60;&#47;span&#62;
+
+&#60;script&#62;
+document.getElementById&#40;"vedoXoY"&#41;.innerHTML&#61;
+' '+
+' '+
+' &#60;style&#62; '+
+' '+
+' .posvedoXoY{'+
+' position:fixed !important;'+
+' right:0 !important;'+
+' bottom:0 !important;'+
+' color:transparent !important;'+
+' margin-right: 0.5rem !important;'+
+' margin-bottom: 1.0rem !important;'+
+
+' '+
+' }'+
+' '+
+' .vediY{ '+
+' cursor:pointer !important;'+
+' background-color:indigo !important;'+
+' background-color:rgba&#40;75,0,130,1&#41; !important;'+
+' border:solid 0.12rem rgba&#40;75,0,130,1&#41; !important;'+
+' '+
+' }'+
+' '+
+' .vediX{ '+
+' cursor:pointer !important;'+
+' background-color:orange !important;'+
+' background-color:rgba&#40;255,165,0,1&#41; !important;'+
+' border:solid 0.12rem rgba&#40;75,0,130,1&#41; !important;'+
+' '+
+' }'+
+
+' '+
+' '+
+' '+
+' &#60;&#47;style&#62; '+
+' '+
+' '+
+
+'&#60;span onclick&#61;"showElement&#40;&#41;" class&#61;"vedi nascondiY vediY posvedoXoY"&#62;Y&#60;&#47;span&#62; '+
+
+'&#60;span onclick&#61;"hideElement&#40;&#41;" class&#61;"nascondi nascondiX vediX posvedoXoY"&#62;X&#60;&#47;span&#62; '+
+
+' '
+;
+
+ function hideElement&#40;&#41; { 
+ element &#61; document.querySelector&#40;'.vedoXoY'&#41;; 
+ element.style.visibility &#61; 'hidden'; 
+ element &#61; document.querySelector&#40;'.nascondiX'&#41;; 
+ element.style.visibility &#61; 'hidden'; 
+ element &#61; document.querySelector&#40;'.vediY'&#41;; 
+ element.style.visibility &#61; 'visible'; 
+ 
+ } 
+ 
+ 
+ function showElement&#40;&#41; { 
+ element &#61; document.querySelector&#40;'.vedoXoY'&#41;; 
+ element.style.visibility &#61; 'visible';
+ element &#61; document.querySelector&#40;'.vediX'&#41;; 
+ element.style.visibility &#61; 'visible';
+ element &#61; document.querySelector&#40;'.nascondiY'&#41;; 
+ element.style.visibility &#61; 'hidden';
+ 
+ } 
+
+&#60;&#47;script&#62;
+
+
+
+
+
+
+
+
+&#60;div id&#61;"divpausa" style&#61;"position:fixed;
+	top:2.5rem;left:0;
+	top:50%;left:50%;
+	background-color:var&#40;--bs-white&#41; !important;
+	margin-left:-8.5rem !important; margin-top:-2rem !important; 
+	border-radius:0.2rem !important; visibility:visible !important;"&#62;
+	&#60;span id&#61;"pausa" class&#61;"spinner-border text-warning"&#62;&#60;&#47;span&#62;
+	
+	&#60;span style&#61;"background-color:transparent !important;"&#62;
+	&#60;span id&#61;"Loading"
+	style&#61;"color:var&#40;--bs-indigo&#41; !important; font-size:2rem !important;"&#62;
+	Loading...&#60;&#47;span&#62;
+	&#60;span id&#61;"percento" 
+	style&#61;"color:var&#40;--bs-indigo&#41; !important;
+	font-size:2rem !important;font-variant:small-caps !important;"&#62;
+	&#60;&#47;span&#62;
+	&#60;&#47;span&#62;
+	&#60;&#47;div&#62; 
+
+
+	 &#60;script&#62;
+	 
+	function pausa&#40;&#41;{
+	if &#40;document.all&#41;{} 
+	else if 
+	&#40;document.getElementById&#41;
+	 { 
+	 document.getElementById&#40;"pausa"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"percento"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"Loading"&#41;.style.visibility&#61;"hidden";
+	 document.getElementById&#40;"divpausa"&#41;.style.visibility&#61;"hidden";
+	
+	 document.getElementById&#40;"body"&#41;.style.visibility&#61;"visible";
+	 document.getElementById&#40;"body"&#41;.style.backgroundColor &#61; 'default';
+	 document.getElementById&#40;"html"&#41;.style.backgroundColor &#61; 'transparent';
+	
+	 }
+	
+	}
+	
+	var percento&#61;document.getElementById&#40;"percento"&#41;;
+	var contatore&#61;1; 
+	var intervallo&#61;setInterval&#40; function&#40;&#41; { percento.innerHTML&#61;contatore+"%"; 
+	contatore++; if &#40;contatore&#61;&#61;&#61;101&#41; {clearInterval&#40;intervallo&#41;;} 
+	} , 9000&#41; 
+	
+	 &#60;&#47;script&#62;
+ 
+
+&#60;div id&#61;"fine"&#62;&#60;&#47;div&#62;
+&#60;&#47;body&#62;
+&#60;&#47;html&#62;
+
+
+
+	</pre>
+
+
+
+
+
+
+
+
+
+
+<p class="text-normale-commento-reverse px-3">
+Alcune osservazioni vanno fatte per inserimento
+immagini. 
+Se la definizione è alta in genere width 100percento 
+va bene. Non altrettanto si può dire quando abbiamo dei 
+francobolli a bassissima risoluzione che portati a 100 
+risulterebbero sgranati e pixellati. Ovviare a questo 
+effetto con width auto.
+</p>
+
+
+
+<p class="my-5"><hr/></p>
+
+
+
+<p id="argomento_template" class="text-uppercase text-warning text-normale-commento-reverse">
+	template
+</p>	
+
+<button onclick="copyToClipboard('#copia_argomento_template')" 
+class="btn btn-primary">
+	<i>copia</i>
+</button>
+ 
+<pre id="copia_argomento_template">
+
+
+&#60;!DOCTYPE html&#62;
+
+&#60;html id&#61;"html" lang&#61;"it" xmlns&#61;"http:&#47;&#47;www.w3.org&#47;1999&#47;xhtml"&#62;
+&#60;head&#62;
+&#60;meta charset&#61;"utf-8"&#62;
+&#60;meta name&#61;"viewport" content&#61;"width&#61;device-width, initial-scale&#61;1, shrink-to-fit&#61;no"&#62;
+
+&#60;title&#62; 2200 struttura base 20201227&#60;&#47;title&#62;
+
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;radice&#47;radice.js"&#62;&#60;&#47;script&#62;
+
+&#60;style&#62;
+:root {background-color:rgba&#40;255,170,0,0.5&#41;;}
+
+body{ background-color:default; }
+&#60;&#47;style&#62;
+
+&#60;&#47;head&#62;
+
+&#60;body id&#61;"body" onload&#61;"pausa&#40;&#41;" style&#61;"visibility:hidden;"&#62;
+
+&#60;main class&#61;"px-5"&#62; 
+
+
+&#60;header class&#61;"titolo"&#62; 
+&#60;blockquote class&#61;"text-center"&#62; 
+ &#60;div class&#61;"overflow-auto"&#62; 
+ titolo &#60;span style&#61;"font-size:1.25rem !important; "&#62;[...]&#60;&#47;span&#62; 
+ &#60;&#47;div&#62; 
+&#60;&#47;blockquote&#62; 
+&#60;&#47;header&#62; 
+
+&#60;table class&#61;"table"&#62; 
+&#60;tbody&#62; 
+&#60;tr&#62; 
+ 
+&#60;td id&#61;"colonna-sinistra" class&#61;"p-0 colonna-sinistra"&#62; &#60;&#47;td&#62;
+ 
+&#60;td&#62;
+ 
+&#60;table class&#61;"table"&#62; 
+&#60;tr&#62; 
+&#60;td&#62; 
+ 
+ &#60;section&#62;
+[qui le sezioni o gli articoli] 
+ &#60;&#47;section&#62; 
+&#60;&#47;td&#62; 
+&#60;&#47;tr&#62; 
+&#60;&#47;table&#62; 
+ 
+&#60;&#47;td&#62; 
+&#60;&#47;tr&#62; 
+&#60;&#47;tbody&#62; 
+&#60;&#47;table&#62; 
+ 
+ 
+ 
+&#60;&#47;main&#62;
+
+
+
+&#60;div id&#61;"bsnr_kickstart_test"&#62;bug bsnr_kickstart_test&#60;&#47;div&#62;
+
+&#60;div id&#61;"piedipagina_menu_postcards" class&#61;"versionedelprogramma"&#62;bug piedipagina_menu_postcards&#60;&#47;div&#62;
+
+&#60;div id&#61;"show_hide_postcards"&#62;bug show_hide_postcards&#60;&#47;div&#62;
+
+&#60;script src&#61;"http:&#47;&#47;beatsupernovarasa.altervista.org&#47;zap&#47;bs&#47;kickstart&#47;default.js"&#62;&#60;&#47;script&#62;
+
+
+
+&#60;script&#62;
+
+document.getElementById&#40;"piedipagina_menu_postcards"&#41;.innerHTML&#61;
+' &#60;section style&#61;"position:fixed; bottom:0; left:0;'+
+' width:100%; text-align:left; border:solid 1rem transparent;"&#62; '+
+
+' &#60;span style&#61;"margin-right:2.3rem !important;'+
+' padding:0.2rem;'+
+' background-color:oldlace; '+
+' border-radius:0.4rem !important;'+
+' border:solid 0.05rem navy !important;"&#62; '+ 
+' '+ 
+
+' &#60;button type&#61;"button" class&#61;"btn shadow-none bg-warning rounded" '+ 
+' data-toggle&#61;"collapse" data-target&#61;"#collapsemenuapdp" '+ 
+' aria-expanded&#61;"false" '+ 
+' style&#61;"position:fixed; top:2.5rem; right:0; &#47;* border-radius:0rem !important; border:solid 0rem black; *&#47; "&#62; '+ 
+' '+ 
+' &#60;svg width&#61;"1em" height&#61;"1em" viewBox&#61;"0 0 16 16" class&#61;"bi bi-back" fill&#61;"currentColor" xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg"&#62;&#60;path fill-rule&#61;"evenodd" d&#61;"M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"&#47;&#62; '+ 
+' &#60;&#47;svg&#62; '+ ' '+ 
+' &#60;&#47;button&#62; '+ 
+
+
+' &#60;span style&#61;"visibility:hidden !important;"&#62;menu&#60;&#47;span&#62; '+
+
+
+' &#60;a href&#61;"#fine"&#62; '+ 
+' &#60;svg xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg" height&#61;"24" viewBox&#61;"0 0 24 24" width&#61;"24"&#62;&#60;path d&#61;"M0 0h24v24H0V0z" fill&#61;"none" &#47;&#62; &#60;path fill&#61;"maroon" d&#61;"M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"&#47;&#62; '+ 
+' &#60;&#47;svg&#62;&#60;&#47;a&#62; '+ 
+' &#60;span style&#61;"visibility:hidden !important;"&#62;menu&#60;&#47;span&#62; '+ 
+' '+ 
+
+' &#60;a href&#61;"#"&#62; '+ 
+' &#60;svg xmlns&#61;"http:&#47;&#47;www.w3.org&#47;2000&#47;svg" height&#61;"24" viewBox&#61;"0 0 24 24" width&#61;"24"&#62; &#60;path d&#61;"M0 0h24v24H0V0z" fill&#61;"none"&#47;&#62; &#60;path fill&#61;"maroon" d&#61;"M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"&#47;&#62; '+ 
+' &#60;&#47;svg&#62;&#60;&#47;a&#62; '+ 
+' '+ 
+' &#60;&#47;span&#62; '+ 
+
+' '+ 
+' '+ 
+' '+ 
+' '+ 
+
+' '+ 
+' '+ 
+' '+ 
+' '+ 
+
+' &#60;div id&#61;"collapsemenuapdp" '+
+' class&#61;"collapse dropdown-menuY border-0" '+ 
+' style&#61;" padding:0rem !important; '+ 
+' '+ 
+' background-color:rgba&#40;0,85,85,0&#41;; '+ 
+' border-left:solid 0.1rem rgba&#40;255,170,0,1&#41; !important; '+ 
+' border-radius:0rem !important; '+ 
+' background-color:rgba&#40;255,170,0,0.85&#41;; "&#62; '+ 
+
+
+' &#60;ul style&#61;"border:solid 0.25rem indigo !important; '+
+' height:11.5rem !important; '+
+' overflow:auto !important; border-radius:0.2rem !important; "&#62;'+
+
+
+' &#60;a class&#61;"btn-warning rounded" '+ 
+' href&#61;"index.html"&#62; '+ 
+' &#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:indigo;color:oldlace;border:solid 0.1rem indigo;"&#62;'+
+' home_page&#60;&#47;span&#62;&#60;&#47;a&#62; '+
+
+' '+
+' '+
+' '+
+
+
+' '+ 
+' '+ 
+' &#60;&#47;ul&#62; '+
+
+' &#60;span class&#61;"p-0" style&#61;"font-size:small !important; background-color:indigo;color:oldlace;"&#62; '+ 
+' versione bs5 con aggiunte alfabeta 20201227_2200 '+
+' &#60;&#47;span&#62; '+
+
+
+' &#60;a class&#61;"ml-2 btn-warning rounded" '+ 
+' href&#61;"index.html"&#62; '+ 
+' &#60;span class&#61;"rounded p-1 fw-bold" style&#61;"background-color:oldlace;color:indigo;border:solid 0.1rem indigo;box-shadow:0.2rem 0.2rem 0.4rem black !important;"&#62;'+
+' home_page&#60;&#47;span&#62;&#60;&#47;a&#62; '+ 
+
+' &#60;&#47;div&#62; '+
+' '+
+' &#60;&#47;section&#62; '+
+
+'';
+
+
+ 
+document.getElementById&#40;"show_hide_postcards"&#41;.innerHTML&#61;
+'&#60;span class&#61;"position-fixed bottom-0 right-0 m-1 versionedelprogramma" '+
+' style&#61;"border:solid 1rem transparent;"&#62; '+
+'&#60;span onclick&#61;"hideElement&#40;&#41;" class&#61;"nascondi" style="color:transparent !important;" &#62;X&#60;&#47;span&#62; '+
+'&#60;span onclick&#61;"showElement&#40;&#41;" class&#61;"vedi" style="color:transparent !important;" &#62;Y&#60;&#47;span&#62; '+
+'&#60;&#47;span&#62; '+
+
+' '
+;
+
+ 
+ function showElement&#40;&#41; { 
+ element &#61; document.querySelector&#40;'.versionedelprogramma'&#41;; 
+ element.style.visibility &#61; 'visible'; 
+ } 
+ 
+ function hideElement&#40;&#41; { 
+ element &#61; document.querySelector&#40;'.versionedelprogramma'&#41;; 
+ element.style.visibility &#61; 'hidden'; 
+ } 
+ 
+
+
+&#60;&#47;script&#62;
+
+
+&#60;div id&#61;"divpausa" style&#61;"position:fixed;
+top:2.5rem;left:0;
+top:50%;left:50%;
+background-color:var&#40;--bs-white&#41; !important;
+margin-left:-8.5rem !important; margin-top:-2rem !important; 
+border-radius:0.2rem !important; visibility:visible !important;"&#62;
+&#60;span id&#61;"pausa" class&#61;"spinner-border text-warning"&#62;&#60;&#47;span&#62;
+
+&#60;span style&#61;"background-color:transparent !important;"&#62;
+&#60;span id&#61;"Loading"
+style&#61;"color:var&#40;--bs-indigo&#41; !important; font-size:2rem !important;"&#62;
+Loading...&#60;&#47;span&#62;
+&#60;span id&#61;"percento" 
+style&#61;"color:var&#40;--bs-indigo&#41; !important;
+font-size:2rem !important;font-variant:small-caps !important;"&#62;
+&#60;&#47;span&#62;
+&#60;&#47;span&#62;
+&#60;&#47;div&#62; 
+
+
+
+ &#60;script&#62;
+ 
+function pausa&#40;&#41;{
+if &#40;document.all&#41;{} 
+else if 
+&#40;document.getElementById&#41;
+ { 
+ document.getElementById&#40;"pausa"&#41;.style.visibility&#61;"hidden";
+ document.getElementById&#40;"percento"&#41;.style.visibility&#61;"hidden";
+ document.getElementById&#40;"Loading"&#41;.style.visibility&#61;"hidden";
+ document.getElementById&#40;"divpausa"&#41;.style.visibility&#61;"hidden";
+
+ document.getElementById&#40;"body"&#41;.style.visibility&#61;"visible";
+ document.getElementById&#40;"body"&#41;.style.backgroundColor &#61; 'default';
+ document.getElementById&#40;"html"&#41;.style.backgroundColor &#61; 'transparent';
+
+ }
+
+}
+
+var percento&#61;document.getElementById&#40;"percento"&#41;;
+var contatore&#61;1; 
+var intervallo&#61;setInterval&#40; function&#40;&#41; { percento.innerHTML&#61;contatore+"%"; 
+contatore++; if &#40;contatore&#61;&#61;&#61;101&#41; {clearInterval&#40;intervallo&#41;;} 
+} , 9000&#41; 
+
+ &#60;&#47;script&#62;
+
+&#60;&#47;body&#62;
+
+&#60;&#47;html&#62;
+
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- copy and past -->
+<pre class="text-xmp">
+
+</pre>
+<p class="text-normale"></p>
+
+<p class="my-5"><hr/></p>
+
+</div>
+
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script>
+/*
+How to copy TEXT to Clipboard on Button-Click
+A Pen By Shaik Maqsood
+
+https://codepen.io/shaikmaqsood/pen/XmydxJ
+*/
+
+function copyToClipboard(element) {
+var $temp = $("<input>");
+$("body").append($temp);
+$temp.val($(element).text()).select();
+document.execCommand("copy");
+$temp.remove();
+}
+</script>
+
+
+
+
+
+
+
+
+<!-- ANNOTAZIONI -->
+<div class="mt-5 p-0" 
+style="margin-top:10rem !important;background-color:rgba(255,170,1,0.5) !important;
+border:solid 0.5rem rgba(255,170,1,0.15) !important;">
+<span style="font-size:0.85rem !important;border:solid 0rem indigo !important;">
+	<i>Annotazioni</i>
+</span>
+	<a id="nota_indietro_000" href="#nota_000" 
+	class="note-cerchietto"> 0 </a>
+<p id="nota_000" href="#nota_000" class="my-0"></p>
+<p><a class="text-link-note" href="#nota_indietro_000">
+(0)</a></p>
+
+<p>Come gestire le note</p>
+
+
+<div class="border border-2 border-danger rounded">
+
+<!--
+<xmp class="text-xmp">
+
+<a id="nota_indietro_000" href="#nota_000" 
+class="note-cerchietto">
+0
+</a>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;a id&#61;"nota_indietro_000" href&#61;"#nota_000" 
+class&#61;"note-cerchietto"&#62;
+0
+&#60;/a&#62;
+
+</pre>
+
+
+
+<!--
+<xmp class="text-xmp">
+<p id="nota_000" class="my-0"></p>
+<a class="text-link-note" href="#nota_indietro_000">
+(0)</a>
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;p id&#61;"nota_000" class&#61;"my-0"&#62;&#60;/p&#62;
+&#60;a class&#61;"text-link-note" href&#61;"#nota_indietro_000"&#62;
+(0)&#60;/a&#62;
+
+</pre>
+
+
+</div>
+
+
+
+
+
+
+
+
+<p class="my-5"></p>
+
+
+<p id="nota_001" class="my-0"></p>
+<a class="text-link-note" href="#nota_indietro_001">(1)</a>
+<p>Questo è un esempio del funzionamento di Date() sincronizzato ogni secondo 
+</p>
+<xmp class="text-xmp">
+document.getElementById("test_date").innerHTML=Date();
+</xmp>
+
+<span id="test_date_statico">bug test_date_statico</span>
+<script>
+document.getElementById("test_date_statico").innerHTML=Date();
+</script>
+<p class="text-xmp-sub">
+Questo è un dato statico che fotografa il momento in cui abbiamo 
+caricato la pagina. Applicato al postfisso funziona perfettamente dato che 
+è dinamico: <i>eseguendo un refresh della pagina si noterà un incremento 
+del valore assoluto dato dallo scorrere del tempo in secondi.</i> 
+Inserendo questo valore nella ricerca del file esterno si 
+ottiene praticamente lo stesso risultato del numero random.
+</p>
+
+
+
+
+<div class="my-5"><hr/></div>
+
+
+<p id="nota_002" class="my-0"></p>
+<a class="text-link-note" href="#nota_indietro_002">(2)</a>
+<!--
+<xmp class="text-xmp">
+ var elem = document.getElementById("incremento");
+ var numero = 0; 
+ var intervallo = setInterval(contatore, 1000);
+ function contatore() {
+ numero=numero+1;
+ elem.innerHTML = numero;
+ 
+ if (numero==40) {
+ window.location.href="test.php" 
+ }
+ }
+ </xmp>
+-->
+
+<pre class="text-xmp">
+
+ var elem &#61; document.getElementById&#40;"incremento"&#41;;
+ var numero &#61; 0; 
+ var intervallo &#61; setInterval&#40;contatore, 1000&#41;;
+ function contatore&#40;&#41; &#123;
+ numero&#61;numero+1;
+ elem.innerHTML &#61; numero;
+ 
+ if &#40;numero&#61;&#61;40&#41; &#123;
+ window.location.href&#61;"test.php" 
+ &#125;
+ &#125;
+
+</pre>
+
+
+
+
+
+<p class="text-normale-commento">
+Lo script esegue un <u>incremento</u> ogni secondo fino a <i>5sec</i> 
+<u>dopodiché esegue test.php</u> oppure si ferma il conteggio.
+<!--
+<xmp class="text-xmp">
+ if (numero==5) {
+ // window.location.href="test.php" 
+ clearInterval(intervallo);
+ }
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+ if &#40;numero&#61;&#61;5&#41; &#123;
+ // window.location.href&#61;"test.php" 
+ clearInterval&#40;intervallo&#41;;
+	&#125;
+	
+</pre>
+
+</p>
+<div>
+<div id="incremento"></div>
+<script>
+ var elem = document.getElementById("incremento");
+ var numero = 0; 
+ var intervallo = setInterval(contatore, 1000);
+ function contatore() {
+ numero=numero+1;
+ elem.innerHTML = numero;
+ 
+ if (numero==5) {
+ // window.location.href="test.php" 
+ clearInterval(intervallo);
+ }
+ }	
+</script>
+</div>
+
+	
+<p class="text-normale-commento">
+Con un ulteriore sofisticazione si può visualizzare il conto alla rovescia
+</p>
+
+<p id="timeragenda" 
+style="cursor:default !important; opacity:1 !important;">
+</p>
+<script>
+document.getElementById("timeragenda").innerHTML=
+' <span id="incremento_timer"> '+
+' '+
+' </span>'+
+' <span> '+
+' &#47;5 '+
+' </span>'+
+' '+
+' ' ;
+
+var elem_timer = document.getElementById("incremento_timer");
+ var numero_timer = 0; 
+ var intervallo_timer = setInterval(contatore_timer, 1000);
+ function contatore_timer() {
+ numero_timer=numero_timer+1;
+ elem_timer.innerHTML = numero_timer;
+ 
+ if (numero_timer==5) {
+ // window.location.href="test.php" 
+ clearInterval(intervallo_timer);
+ }
+ }	
+</script>
+
+
+<div class="my-5"><hr/></div>
+<p id="nota_003" class="my-0"></p>
+<a class="text-link-note" href="#nota_indietro_003">(3)</a>
+<p class="text-normale-commento">
+Da notare un possibile problema di rendering 
+dato dalla comune idea che una <i> string </i> viene 
+spezzata dal browser quando trova uno <u> space </u> 
+il quale fa da separazione per individuare le parole in una 
+proposizione. Ora appare un behavior non congruo con 
+questo comportamento tra <i>0123456789-0123456789</i> e 
+<i>01234567890123456789</i> oppure <i>0123456789 0123456789</i> 
+, normalmente le prime due string sono una unica
+parola mentre la terza string è composta da due parole 
+tuttavia nel browser Chrome la string uno è formata da 
+due parole e solo la seconda è interpretata come una 
+singola string.
+</p>
+
+
+<div class="my-5"><hr/></div>
+<p id="nota_004" class="my-0"></p>
+<a class="text-link-note" href="#nota_indietro_004">(4)</a>
+<p class="text-normale-commento">
+Alcuni problemi con il <i>footer</i> si rilevano dato che 
+il <u>collapse ha una priorità </u> la quale impedisce di 
+accedere ad alcune funzionalità del programma. Occorre quindi 
+procedere con il <i>hide</i> del componente bloccante. 
+</p>
+<a id="indietro_argomento_togglato" 
+href="#argomento_togglato" >
+<u style=" font-size:1.5rem !important; 
+box-shadow:0.2rem 0.2rem orange; 
+border-left:solid 1.5rem firebrick !important;">
+	vai all'esempio [toggle]</u></a> 
+<p>
+Il toggle utilizza un solo bottone per attivare o disattivare 
+una determinata attività.
+</p>
+<p>
+
+</p>
+
+<!--
+<xmp class="text-xmp">
+
+<span class="versionedelprogramma">VEDI/NASCONDI</span>
+
+<span class="position-fixed bottom-0 right-0 m-1 versionedelprogramma">
+	<span onclick="showElement()" class="vedi">&nbsp;</span>
+	<span onclick="hideElement()" class="nascondi">&nbsp;</span>
+</span> 
+function showElement() { 
+	element = document.querySelector('.versionedelprogramma'); 
+	element.style.visibility = 'visible'; 
+} 
+
+function hideElement() { 
+	element = document.querySelector('.versionedelprogramma'); 
+	element.style.visibility = 'hidden'; 
+} 
+
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+&#60;span class="versionedelprogramma"&#61;VEDI&#47;NASCONDI&#60;&#47;span&#62;
+
+&#60;span class="position-fixed bottom-0 right-0 m-1 versionedelprogramma"&#62;
+	&#60;span onclick="showElement&#40;&#41;" class="vedi"&#62;&nbsp;&#60;&#47;span&#62;
+	&#60;span onclick="hideElement&#40;&#41;" class="nascondi"&#62;&nbsp;&#60;&#47;span&#62;
+&#60;&#47;span&#61; 
+function showElement&#40;&#41; &#123; 
+	element = document.querySelector&#40;'.versionedelprogramma'&#41;; 
+	element.style.visibility = 'visible'; 
+&#125; 
+
+function hideElement&#40;&#41; &#123; 
+	element = document.querySelector&#40;'.versionedelprogramma'&#41;; 
+	element.style.visibility = 'hidden'; 
+&#125; 
+
+
+</pre>
+
+
+<p class="text-normale-commento">
+Un ulteriore miglioramento avviene se i due pulsanti X e Y 
+sono fatti visualmente coincidere effettuando un unico pulsante 
+<i>toggle</i> ovvero <u>attiva/disattiva</u>
+</p>
+
+<xmp>
+	<div class="vedoXoY"></div>
+</xmp>
+<a id="argomento_togglato" href="#indietro_argomento_togglato" 
+style="font-size:1.25rem !important; font-weight:bold;
+box-shadow:0.1rem 0.1rem 0.2rem black;
+border-radius:0.2rem !important;">
+	&#60; </a>
+<pre class="text-normale-commento" style="border-radius:0.5rem;">
+
+
+	&#60;span id&#61;"vedoXoY"&#62;bug vedoXoY&#60;&#47;span&#62;
+
+	&#60;script&#62;
+	document.getElementById&#40;"vedoXoY"&#41;.innerHTML&#61;
+	' '+
+	' '+
+	' &#60;style&#62; '+
+	' '+
+	' .posvedoXoY{'+
+	' position:fixed !important;'+
+	' right:0 !important;'+
+	' bottom:0 !important;'+
+	' color:transparent !important;'+
+	' margin-right: 0.5rem !important;'+
+	' margin-bottom: 1.0rem !important;'+
+	
+	' '+
+	' }'+
+	' '+
+	' .vediY{ '+
+	' cursor:pointer !important;'+
+	' background-color:indigo !important;'+
+	' background-color:rgba&#40;75,0,130,1&#41; !important;'+
+	' border:solid 0.12rem rgba&#40;75,0,130,1&#41; !important;'+
+	' '+
+	' }'+
+	' '+
+	' .vediX{ '+
+	' cursor:pointer !important;'+
+	' background-color:orange !important;'+
+	' background-color:rgba&#40;255,165,0,1&#41; !important;'+
+	' border:solid 0.12rem rgba&#40;75,0,130,1&#41; !important;'+
+	' '+
+	' }'+
+	
+	' '+
+	' '+
+	' '+
+	' &#60;&#47;style&#62; '+
+	' '+
+	' '+
+	
+	'&#60;span onclick&#61;"showElement&#40;&#41;" class&#61;"vedi nascondiY vediY posvedoXoY"&#62;Y&#60;&#47;span&#62; '+
+	
+	'&#60;span onclick&#61;"hideElement&#40;&#41;" class&#61;"nascondi nascondiX vediX posvedoXoY"&#62;X&#60;&#47;span&#62; '+
+	
+	' '
+	;
+	
+	 function hideElement&#40;&#41; { 
+	 element &#61; document.querySelector&#40;'.vedoXoY'&#41;; 
+	 element.style.visibility &#61; 'hidden'; 
+	 element &#61; document.querySelector&#40;'.nascondiX'&#41;; 
+	 element.style.visibility &#61; 'hidden'; 
+	 element &#61; document.querySelector&#40;'.vediY'&#41;; 
+	 element.style.visibility &#61; 'visible'; 
+	 
+	 } 
+	 
+	 
+	 function showElement&#40;&#41; { 
+	 element &#61; document.querySelector&#40;'.vedoXoY'&#41;; 
+	 element.style.visibility &#61; 'visible';
+	 element &#61; document.querySelector&#40;'.vediX'&#41;; 
+	 element.style.visibility &#61; 'visible';
+	 element &#61; document.querySelector&#40;'.nascondiY'&#41;; 
+	 element.style.visibility &#61; 'hidden';
+	 
+	 } 
+	
+	&#60;&#47;script&#62;
+	
+
+</pre>
+
+
+
+
+
+
+
+
+
+
+<div class="my-5"><hr/></div>
+<p id="nota_005" class="my-0"></p>
+<a class="note-cerchietto" href="#nota_indietro_005">(5)</a>
+<p class="text-normale-commento">
+Codice per copiare velocemente una porzione di 
+testo.
+</p>
+<!--
+<xmp class="text-xmp">
+
+	<button onclick="copyToClipboard('#copia')">
+	<i>copy</i>
+	</button>
+	<p id="copia">
+	testo da copiare
+	</p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script>
+	/*
+	How to copy TEXT to Clipboard on Button-Click
+	A Pen By Shaik Maqsood
+	
+	https://codepen.io/shaikmaqsood/pen/XmydxJ
+	*/
+	
+	function copyToClipboard(element) {
+	var $temp = $("<input>");
+	$("body").append($temp);
+	$temp.val($(element).text()).select();
+	document.execCommand("copy");
+	$temp.remove();
+	}
+	</script> 
+	
+</xmp>
+-->
+
+<pre class="text-xmp">
+
+	&#60;button onclick&#61;"copyToClipboard&#40;'#copia'&#41;"&#62;
+	&#60;i&#62;copy&#60;&#47;i&#62;
+	&#60;&#47;button&#62;
+	&#60;p id&#61;"copia"&#62;
+	testo da copiare
+	&#60;&#47;p&#62;
+	&#60;script src&#61;"https:&#47;&#47;ajax.googleapis.com&#47;ajax&#47;libs&#47;jquery&#47;1.11.1&#47;jquery.min.js"&#62;&#60;&#47;script&#62;
+	&#60;script&#62;
+	&#47;*
+	How to copy TEXT to Clipboard on Button-Click
+	A Pen By Shaik Maqsood
+	
+	https:&#47;&#47;codepen.io&#47;shaikmaqsood&#47;pen&#47;XmydxJ
+	*&#47;
+	
+	function copyToClipboard&#40;element&#41; {
+	var $temp &#61; $&#40;"&#60;input&#62;"&#41;;
+	$&#40;"body"&#41;.append&#40;$temp&#41;;
+	$temp.val&#40;$&#40;element&#41;.text&#40;&#41;&#41;.select&#40;&#41;;
+	document.execCommand&#40;"copy"&#41;;
+	$temp.remove&#40;&#41;;
+	}
+	&#60;&#47;script&#62; 
+
+</pre>
+
+
+<p class="text-normale-commento pl-2 pr-2">
+	La funzione <u>copyToClipboard</u> funziona con un <u>id</u> occorre 
+	quindi fare molta attenzione a non duplicare gli ids.
+</p>
+
+
+
+<div class="my-5"><hr/></div>
+<p id="nota_006" class="my-0"></p>
+<a class="note-cerchietto" href="#nota_indietro_006">(6)</a>
+<p class="text-normale">
+<a href="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" class="text-link-generico">jQuery</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js" class="text-link-generico">bootstrap</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/piedipagina_menu_test/default.js" class="text-link-generico">piedipagina</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/show_hide/default.js" class="text-link-generico">show_hide</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" class="text-link-generico">tablone</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/default.js" class="text-link-generico" style="opacity:0.5 !important;">links</a>
+<a href="http://beatsupernovarasa.altervista.org/zap/bs/bs_2020_12_21a.js" class="text-link-generico" style="opacity:0.5 !important;">bscompatto</a>
+
+</p>
+
+<div class="my-5"><hr/></div>
+<p id="nota_007" class="my-0"></p>
+<a class="note-cerchietto" href="#nota_indietro_007">(7)</a>
+<p class="text-normale-commento pl-2 pr-2" 
+style="font-size:1.25rem !important;
+font-weight:bold !important;
+font-variant:small-caps;">
+ascii code (da 32 a 127) visualizzati 
+secondo font-family predisposta 
+</p>
+<pre class="text-xmp">
+	32		space
+	33	!	exclamation mark
+	34	"	quotation mark
+	35	#	number sign
+	36	$	dollar sign
+	37	%	percent sign
+	38	&	ampersand
+	39	'	apostrophe
+	40	(	left parenthesis
+	41	)	right parenthesis
+	42	*	asterisk
+	43	+	plus sign
+	44	,	comma
+	45	-	hyphen-minus
+	46	.	full stop
+	47	/	solidus
+	48	0	digit zero
+	49	1	digit one
+	50	2	digit two
+	51	3	digit three
+	52	4	digit four
+	53	5	digit five
+	54	6	digit six
+	55	7	digit seven
+	56	8	digit eight
+	57	9	digit nine
+	58	:	colon
+	59	;	semicolon
+	60	&#60;	less-than sign
+	61	=	equals sign
+	62	&#62;	greater-than sign
+	63	?	question mark
+	64	@	commercial at
+	65	A	Latin capital letter A
+	66	B	Latin capital letter B
+	67	C	Latin capital letter C
+	68	D	Latin capital letter D
+	69	E	Latin capital letter E
+	70	F	Latin capital letter F
+	71	G	Latin capital letter G
+	72	H	Latin capital letter H
+	73	I	Latin capital letter I
+	74	J	Latin capital letter J
+	75	K	Latin capital letter K
+	76	L	Latin capital letter L
+	77	M	Latin capital letter M
+	78	N	Latin capital letter N
+	79	O	Latin capital letter O
+	80	P	Latin capital letter P
+	81	Q	Latin capital letter Q
+	82	R	Latin capital letter R
+	83	S	Latin capital letter S
+	84	T	Latin capital letter T
+	85	U	Latin capital letter U
+	86	V	Latin capital letter V
+	87	W	Latin capital letter W
+	88	X	Latin capital letter X
+	89	Y	Latin capital letter Y
+	90	Z	Latin capital letter Z
+	91	[	left square bracket
+	92	\	reverse solidus
+	93	]	right square bracket
+	94	^	circumflex accent
+	95	_	low line
+	96	`	grave accent
+	97	a	Latin small letter a
+	98	b	Latin small letter b
+	99	c	Latin small letter c
+	100	d	Latin small letter d
+	101	e	Latin small letter e
+	102	f	Latin small letter f
+	103	g	Latin small letter g
+	104	h	Latin small letter h
+	105	i	Latin small letter i
+	106	j	Latin small letter j
+	107	k	Latin small letter k
+	108	l	Latin small letter l
+	109	m	Latin small letter m
+	110	n	Latin small letter n
+	111	o	Latin small letter o
+	112	p	Latin small letter p
+	113	q	Latin small letter q
+	114	r	Latin small letter r
+	115	s	Latin small letter s
+	116	t	Latin small letter t
+	117	u	Latin small letter u
+	118	v	Latin small letter v
+	119	w	Latin small letter w
+	120	x	Latin small letter x
+	121	y	Latin small letter y
+	122	z	Latin small letter z
+	123	{	left curly bracket
+	124	|	vertical line
+	125	}	right curly bracket
+	126	~	tilde
+	127	DEL	 	 	 	 
+	
+	</pre>
+<p class="text-normale-commento pl-2 pr-2">
+Il codice <u>ascii</u> continua fino a 255.
+</p>
+
+
+
+
+
+
+
+
+
+
+
+<div class="my-5"><hr/></div>
+
+</div>
+
+
+</article>
+</section>
+
+
+
+</main>
+
+
+<div id="bsnr_kickstart_test">bug bsnr_kickstart_test</div>
+<script src="http://beatsupernovarasa.altervista.org/zap/bs/kickstart/bsnr_kickstart_test/default.js"></script>
+
+<link rel="stylesheet" href="http://beatsupernovarasa.altervista.org/zap/bs/tablone/default.css" />
+
+
+
+<div id="piedipagina_menu_togglato" class="vedoXoY" >bug piedipagina_menu_togglato</div>
+
+
+
+
+<script>
+document.getElementById("piedipagina_menu_togglato").innerHTML=
+' <section style="position:fixed; bottom:0; left:0;'+
+' border-bottom:solid 1rem transparent !important; '+
+' border-left:solid 0.5rem transparent !important;'+
+' border-right:solid 0.5rem transparent !important;'+
+ 
+' width:100%; text-align:left; "> '+
+
+' <span style="margin-right:2.3rem !important;'+
+' padding:0.2rem;'+
+' background-color:oldlace; '+
+' border-radius:0.4rem !important;'+
+' border:solid 0.05rem navy !important;"> '+ 	
+' '+ 	
+
+' <button type="button" class="btn shadow-none bg-warning rounded" '+ 	
+' data-toggle="collapse" data-target="#collapsemenuapdp" '+ 	
+' aria-expanded="false" '+ 	
+' style="position:fixed; top:2.5rem; right:0; /* border-radius:0rem !important; border:solid 0rem black; */ "> '+ 	
+' '+ 	
+' <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-back" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M0 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v2h2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-2H2a2 2 0 0 1-2-2V2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H2z"/> '+ 	
+' </svg> '+ 	' '+ 	
+' </button> '+	 	
+
+
+' <span style="visibility:hidden !important;">menu</span> '+
+
+
+' <a href="#fine"> '+ 	
+' <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none" /> <path fill="maroon" d="M20 12l-1.41-1.41L13 16.17V4h-2v12.17l-5.58-5.59L4 12l8 8 8-8z"/> '+ 	
+' </svg></a> '+ 	
+' <span style="visibility:hidden !important;">menu</span> '+ 	
+' '+ 	
+
+' <a href="#"> '+ 	
+' <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"> <path d="M0 0h24v24H0V0z" fill="none"/> <path fill="maroon" d="M4 12l1.41 1.41L11 7.83V20h2V7.83l5.58 5.59L20 12l-8-8-8 8z"/> '+ 	
+' </svg></a> '+ 	
+' '+	 	
+' </span> '+ 
+
+' '+ 	' '+ 	' '+ 	' '+ 	
+
+
+' '+ 	' '+ 	
+' '+ 	' '+ 	
+
+' <div id="collapsemenuapdp" '+
+' class="collapse dropdown-menuY border-0" '+ 	
+' style=" padding:0rem !important; '+ 	
+' '+ 	
+' background-color:rgba(0,85,85,0); '+ 	
+' border-left:solid 0.1rem rgba(255,170,0,1) !important; '+ 	
+' border-radius:0rem !important; '+ 	
+' background-color:rgba(255,170,0,0.85); "> '+ 
+
+
+' <ul style="border:solid 0.25rem indigo !important; '+
+' height:11.5rem !important; '+
+' overflow:auto !important; border-radius:0.2rem !important; ">'+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_spinner"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' spinner</span></a> '+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_asincrono"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' asincrono</span></a> '+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_font"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' font</span></a> '+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_collapse"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' collapse</span></a> '+
+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_sign_in"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' sign_in</span></a> '+
+
+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_struttura_base"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' struttura</span></a> '+
+
+
+
+
+' 	<a class="btn-warning rounded" '+ 
+' href="#argomento_togglato"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:indigo;color:oldlace;border:solid 0.1rem indigo;">'+
+' toggle </span></a> '+
+
+
+
+
+
+
+
+' <p class="my-1"><hr/></p> '+
+' <span style="font-size:small !important;font-weight:bold !important;">'+
+' note: </span> '+
+' '+
+' <a href="#nota_001" class="note-cerchietto mr-1"> '+
+' 1 </a> '+
+
+' <a href="#nota_002" class="note-cerchietto mr-1"> '+
+' 2 </a> '+
+
+' <a href="#nota_003" class="note-cerchietto mr-1"> '+
+' 3 </a> '+
+
+
+' <a href="#nota_004" class="note-cerchietto mr-1"> '+
+' 4 </a> '+
+
+
+' <a href="#nota_005" class="note-cerchietto mr-1"> '+
+' 5 </a> '+
+
+' <a href="#nota_006" class="note-cerchietto mr-1"> '+
+' 6 </a> '+
+
+
+
+' '+
+' '+
+' '+
+
+
+' 	 '+ 	' '+ 	
+' </ul> '+
+
+' <span class="p-0" style="font-size:small !important; background-color:indigo;color:oldlace;">	 '+ 	
+' alfabeta 20201228_1530 '+
+' </span>	 '+
+
+
+' 	<a class="ml-2 btn-warning rounded" '+ 
+' href="http://venexiatre.altervista.org/WORKOU/OGGI/20191119/20191119f_1-CREEK.html"> '+ 	
+' 	<span class="rounded p-1 fw-bold" style="background-color:oldlace;color:indigo;border:solid 0.1rem indigo;box-shadow:0.2rem 0.2rem 0.4rem black !important;">'+
+' home_page</span></a> '+ 
+
+' </div> '+
+' '+
+' </section> '+
+
+'';
+
+/* vedi nascondi bottoni separati 
+ 
+ function showElement() { 
+			 element = document.querySelector('.versionedelprogramma'); 
+			 element.style.visibility = 'visible'; 
+		 } 
+ 
+ function hideElement() { 
+			 element = document.querySelector('.versionedelprogramma'); 
+			 element.style.visibility = 'hidden'; 
+		 } 
+ */
+ 
+ 
+ 
+
+
+
+
+/*
+How to copy TEXT to Clipboard on Button-Click
+A Pen By Shaik Maqsood
+
+https://codepen.io/shaikmaqsood/pen/XmydxJ
+*/
+
+function copyToClipboard(element) {
+var $temp = $("<input>");
+$("body").append($temp);
+$temp.val($(element).text()).select();
+document.execCommand("copy");
+$temp.remove();
+}
+</script>
+
+
+
+
+<span id="vedoXoY">bug vedoXoY</span>
+
+<script>
+document.getElementById("vedoXoY").innerHTML=
+' '+
+' '+
+' <style> '+
+' '+
+' .posvedoXoY{'+
+' position:fixed !important;'+
+' right:0 !important;'+
+' bottom:0 !important;'+
+' color:transparent !important;'+
+' margin-right: 0.5rem !important;'+
+' margin-bottom: 1.0rem !important;'+
+
+' '+
+' }'+
+' '+
+' .vediY{ '+
+' cursor:pointer !important;'+
+' background-color:indigo !important;'+
+' background-color:rgba(75,0,130,1) !important;'+
+' border:solid 0.12rem rgba(75,0,130,1) !important;'+
+' '+
+' }'+
+' '+
+' .vediX{ '+
+' cursor:pointer !important;'+
+' background-color:orange !important;'+
+' background-color:rgba(255,165,0,1) !important;'+
+' border:solid 0.12rem rgba(75,0,130,1) !important;'+
+' '+
+' }'+
+
+' '+
+' '+
+' '+
+' </style> '+
+' '+
+' '+
+
+'<span onclick="showElement()" class="vedi nascondiY vediY posvedoXoY">Y</span> '+
+
+'<span onclick="hideElement()" class="nascondi nascondiX vediX posvedoXoY">X</span> '+
+
+' '
+;
+
+ function hideElement() { 
+ element = document.querySelector('.vedoXoY'); 
+ element.style.visibility = 'hidden'; 
+ element = document.querySelector('.nascondiX'); 
+ element.style.visibility = 'hidden'; 
+ element = document.querySelector('.vediY'); 
+ element.style.visibility = 'visible'; 
+ 
+ } 
+ 
+ 
+ function showElement() { 
+ element = document.querySelector('.vedoXoY'); 
+ element.style.visibility = 'visible';
+ element = document.querySelector('.vediX'); 
+ element.style.visibility = 'visible';
+ element = document.querySelector('.nascondiY'); 
+ element.style.visibility = 'hidden';
+ 
+ } 
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<div id="divpausa" style="position:fixed;
+	top:2.5rem;left:0;
+	top:50%;left:50%;
+	background-color:var(--bs-white) !important;
+	margin-left:-8.5rem !important; margin-top:-2rem !important; 
+	border-radius:0.2rem !important; visibility:visible !important;">
+	<span id="pausa" class="spinner-border text-warning"></span>
+	
+	<span style="background-color:transparent !important;">
+	<span id="Loading"
+	style="color:var(--bs-indigo) !important; font-size:2rem !important;">
+	Loading...</span>
+	<span id="percento" 
+	style="color:var(--bs-indigo) !important;
+	font-size:2rem !important;font-variant:small-caps !important;">
+	</span>
+	</span>
+	</div> 
+
+
+	 <script>
+	 
+	function pausa(){
+	if (document.all){} 
+	else if 
+	(document.getElementById)
+	 { 
+	 document.getElementById("pausa").style.visibility="hidden";
+	 document.getElementById("percento").style.visibility="hidden";
+	 document.getElementById("Loading").style.visibility="hidden";
+	 document.getElementById("divpausa").style.visibility="hidden";
+	
+	 document.getElementById("body").style.visibility="visible";
+	 document.getElementById("body").style.backgroundColor = 'default';
+	 document.getElementById("html").style.backgroundColor = 'transparent';
+	
+	 }
+	
+	}
+	
+	var percento=document.getElementById("percento");
+	var contatore=1; 
+	var intervallo=setInterval( function() { percento.innerHTML=contatore+"%"; 
+	contatore++; if (contatore===101) {clearInterval(intervallo);} 
+	} , 9000) 
+	
+	 </script>
+
+
+
+
+<div id="fine"></div>
+</body>
+</html>
