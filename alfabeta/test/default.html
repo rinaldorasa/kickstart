@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html id="html">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML"/>
+  <title> 1100 20201231 preTEST </title>
+  <style>
+	:root {background-color:rgba(255,170,0,0.5);}
+	
+	body{ background-color:default; }
+	</style> 
+</head>
+<body id="body" onload="pausa()"  style="visibility:hidden;">
+<p></p>
+
+<pre style="text-align:left;">
+
+
+&#60;!DOCTYPE html&#62;
+&#60;html id&#61;"html"&#62;
+&#60;head&#62;
+  &#60;meta charset&#61;"utf-8"&#62;
+  &#60;meta name&#61;"generator" content&#61;"AlterVista - Editor HTML"/&#62;
+  &#60;title&#62; 1100 20201231 preTEST &#60;/title&#62;
+  &#60;style&#62;
+ :root {background-color:rgba&#40;255,170,0,0.5&#41;;}
+ 
+ body{ background-color:default; }
+ &#60;/style&#62; 
+&#60;/head&#62;
+&#60;body id&#61;"body" onload&#61;"pausa&#40;&#41;"  style&#61;"visibility:hidden;"&#62;
+&#60;p&#62;&#60;/p&#62;
+
+&#60;pre style&#61;"text-align:left;"&#62;
+
+&#60;/pre&#62;
+
+  &#60;p id&#61;"bsnr_kickstart_test" class&#61;""&#62;&nbsp; bug  bsnr_kickstart_test &#60;/p&#62;
+  &#60;p id&#61;"menu" class&#61;"vedoXoY"&#62;&nbsp; bug  menu &#60;/p&#62;
+  &#60;!-- &#60;p id&#61;"togglato"&#62;&nbsp; bug  togglato &#60;/p&#62; --&#62;
+
+&#60;script&#62;
+  var radice_alfabeta&#61;"http://beatsupernovarasa.altervista.org/alfabeta/";
+  var adesso&#61;new Date&#40;&#41;;
+  var postfisso_test_js&#61;"default.js?"+adesso;
+  var postfisso_test_css&#61;"default.css?"+adesso;
+ 
+
+
+  var script_bs&#61;document.createElement&#40;"script"&#41;;
+  var nome_bs&#61;radice_alfabeta+"/bs/"+postfisso_test_js;
+  script_bs.src&#61;nome_bs; document.getElementsByTagName&#40;"head"&#41;[0].appendChild&#40;script_bs&#41;;
+  
+  var script_menu&#61;document.createElement&#40;"script"&#41;;
+  var nome_menu&#61;radice_alfabeta+"/menu/"+postfisso_test_js;
+  script_menu.src&#61;nome_menu; document.getElementsByTagName&#40;"head"&#41;[0].appendChild&#40;script_menu&#41;;
+
+ 
+  var link_tablone&#61;document.createElement&#40;"link"&#41;;
+  var nome_tablone&#61;radice_alfabeta+"/tablone/"+postfisso_test_css;
+  link_tablone.rel&#61;"stylesheet"; 
+  link_tablone.href&#61;nome_tablone; 
+  document.getElementsByTagName&#40;"head"&#41;[0].appendChild&#40;link_tablone&#41;;
+
+
+&#60;/script&#62;
+  
+
+
+
+&#60;div id&#61;"divpausa" style&#61;"position:fixed;
+ top:2.5rem;left:0;
+ top:50%;left:50%;
+ background-color:var&#40;--bs-white&#41; !important;
+ margin-left:-8.5rem !important; margin-top:-2rem !important; 
+ border-radius:0.2rem !important; visibility:visible !important;"&#62;
+ &#60;span id&#61;"pausa" class&#61;"spinner-border text-warning"&#62;&#60;/span&#62;
+ 
+ &#60;span style&#61;"background-color:transparent !important;"&#62;
+ &#60;span id&#61;"Loading"
+ style&#61;"color:var&#40;--bs-indigo&#41; !important; font-size:2rem !important;"&#62;
+ Loading...&#60;/span&#62;
+ &#60;span id&#61;"percento" 
+ style&#61;"color:var&#40;--bs-indigo&#41; !important;
+ font-size:2rem !important;font-variant:small-caps !important;"&#62;
+ &#60;/span&#62;
+ &#60;/span&#62;
+ &#60;/div&#62; 
+
+
+  &#60;script&#62;
+  
+ function pausa&#40;&#41;{
+ if &#40;document.all&#41;{} 
+ else if 
+ &#40;document.getElementById&#41;
+  { 
+  document.getElementById&#40;"pausa"&#41;.style.visibility&#61;"hidden";
+  document.getElementById&#40;"percento"&#41;.style.visibility&#61;"hidden";
+  document.getElementById&#40;"Loading"&#41;.style.visibility&#61;"hidden";
+  document.getElementById&#40;"divpausa"&#41;.style.visibility&#61;"hidden";
+ 
+  document.getElementById&#40;"body"&#41;.style.visibility&#61;"visible";
+  document.getElementById&#40;"body"&#41;.style.backgroundColor &#61; 'default';
+  document.getElementById&#40;"html"&#41;.style.backgroundColor &#61; 'transparent';
+ 
+  }
+ 
+ }
+ 
+ var percento&#61;document.getElementById&#40;"percento"&#41;;
+ var contatore&#61;1; 
+ var intervallo&#61;setInterval&#40; function&#40;&#41; { percento.innerHTML&#61;contatore+"%"; 
+ contatore++; if &#40;contatore&#61;&#61;&#61;101&#41; {clearInterval&#40;intervallo&#41;;} 
+ } , 9000&#41; 
+ 
+  &#60;/script&#62;
+
+&#60;div id&#61;"fine"&#62;&#60;/div&#62;
+&#60;/body&#62;
+&#60;/html&#62;
+
+
+
+</pre>
+
+  <p id="bsnr_kickstart_test" class="">&nbsp; bug  bsnr_kickstart_test </p>
+  <p id="menu" class="vedoXoY">&nbsp; bug  menu </p>
+  <!-- <p id="togglato">&nbsp; bug  togglato </p> -->
+
+<script>
+  var radice_alfabeta="http://beatsupernovarasa.altervista.org/alfabeta/";
+  var adesso=new Date();
+  var postfisso_test_js="default.js?"+adesso;
+  var postfisso_test_css="default.css?"+adesso;
+ 
+
+
+  var script_bs=document.createElement("script");
+  var nome_bs=radice_alfabeta+"/bs/"+postfisso_test_js;
+  script_bs.src=nome_bs; document.getElementsByTagName("head")[0].appendChild(script_bs);
+  
+  var script_menu=document.createElement("script");
+  var nome_menu=radice_alfabeta+"/menu/"+postfisso_test_js;
+  script_menu.src=nome_menu; document.getElementsByTagName("head")[0].appendChild(script_menu);
+
+ 
+  var link_tablone=document.createElement("link");
+  var nome_tablone=radice_alfabeta+"/tablone/"+postfisso_test_css;
+  link_tablone.rel="stylesheet"; 
+  link_tablone.href=nome_tablone; 
+  document.getElementsByTagName("head")[0].appendChild(link_tablone);
+
+
+</script>
+  
+
+
+
+<div id="divpausa" style="position:fixed;
+	top:2.5rem;left:0;
+	top:50%;left:50%;
+	background-color:var(--bs-white) !important;
+	margin-left:-8.5rem !important; margin-top:-2rem !important; 
+	border-radius:0.2rem !important; visibility:visible !important;">
+	<span id="pausa" class="spinner-border text-warning"></span>
+	
+	<span style="background-color:transparent !important;">
+	<span id="Loading"
+	style="color:var(--bs-indigo) !important; font-size:2rem !important;">
+	Loading...</span>
+	<span id="percento" 
+	style="color:var(--bs-indigo) !important;
+	font-size:2rem !important;font-variant:small-caps !important;">
+	</span>
+	</span>
+	</div> 
+
+
+	 <script>
+	 
+	function pausa(){
+	if (document.all){} 
+	else if 
+	(document.getElementById)
+	 { 
+	 document.getElementById("pausa").style.visibility="hidden";
+	 document.getElementById("percento").style.visibility="hidden";
+	 document.getElementById("Loading").style.visibility="hidden";
+	 document.getElementById("divpausa").style.visibility="hidden";
+	
+	 document.getElementById("body").style.visibility="visible";
+	 document.getElementById("body").style.backgroundColor = 'default';
+	 document.getElementById("html").style.backgroundColor = 'transparent';
+	
+	 }
+	
+	}
+	
+	var percento=document.getElementById("percento");
+	var contatore=1; 
+	var intervallo=setInterval( function() { percento.innerHTML=contatore+"%"; 
+	contatore++; if (contatore===101) {clearInterval(intervallo);} 
+	} , 9000) 
+	
+	 </script>
+
+<div id="fine"></div>
+</body>
+</html>
