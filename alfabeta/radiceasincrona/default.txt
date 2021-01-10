@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="AlterVista - Editor HTML"/>
+  <title></title>
+</head>
+<body>
+
+  <p>&nbsp;</p>
+  
+  <script>
+  var radice_alfabeta="http://beatsupernovarasa.altervista.org/alfabeta/";
+  var adesso=new Date();
+  var postfisso_test_js="default.js?"+adesso;
+  var postfisso_test_css="default.css?"+adesso;
+ 
+
+
+  var script_bs=document.createElement("script");
+  var nome_bs=radice_alfabeta+"/bs/"+postfisso_test_js;
+  script_bs.src=nome_bs; document.getElementsByTagName("head")[0].appendChild(script_bs);
+  
+  var script_menu=document.createElement("script");
+  var nome_menu=radice_alfabeta+"/menu/"+postfisso_test_js;
+  script_menu.src=nome_menu; document.getElementsByTagName("head")[0].appendChild(script_menu);
+
+ 
+  var link_tablone=document.createElement("link");
+  var nome_tablone=radice_alfabeta+"/tablone/"+postfisso_test_css;
+  link_tablone.rel="stylesheet"; 
+  link_tablone.href=nome_tablone; 
+  document.getElementsByTagName("head")[0].appendChild(link_tablone);
+
+
+</script>
+  
+
+</body>
+</html>
