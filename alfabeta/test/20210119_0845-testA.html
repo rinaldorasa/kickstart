@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html id="html" lang="it" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta charset="utf-8">
+<meta name="generator" content="AlterVista - Editor HTML"/>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title> 
+
+0830 hello thanks
+
+</title>
+
+
+</head>
+
+<body id="body" onload="ATTESA()" style="visibility:hidden !important;">
+
+<main id="main" class="mx-5">
+
+
+<div id="a">bug!!!</div>
+
+<script src="a.js"></script>
+
+
+
+
+
+</main>
+
+<div id="SPINNERpausa" style="position:fixed;
+top:2.5rem;left:0;
+top:50%;left:50%;
+background-color:var(--bs-white) !important;
+margin-left:-8.5rem !important; margin-top:-2rem !important; 
+border-radius:0.2rem !important; visibility:visible !important;">
+<span id="pausa" class="spinner-border text-warning"></span>
+
+<span style="background-color:transparent !important;">
+<span id="Loading"
+style="color:var(--bs-indigo) !important; font-size:2rem !important;">
+Loading...</span>
+<span id="percento" 
+style="color:var(--bs-indigo) !important;
+font-size:2rem !important;font-variant:small-caps !important;">
+</span>
+</span>
+</div> 
+
+
+
+
+
+<script>
+
+function ATTESA(){
+if (document.all){} 
+else if 
+(document.getElementById)
+{ 
+document.getElementById("pausa").style.visibility="hidden";
+document.getElementById("percento").style.visibility="hidden";
+document.getElementById("Loading").style.visibility="hidden";
+document.getElementById("SPINNERpausa").style.visibility="hidden";
+
+document.getElementById("body").style.visibility="visible";
+document.getElementById("body").style.backgroundColor = 'default';
+document.getElementById("html").style.backgroundColor = 'transparent';
+
+}
+
+}
+
+var percento=document.getElementById("percento");
+var contatore=1; 
+var intervallo=setInterval( function() { percento.innerHTML=contatore+"%"; 
+contatore++; if (contatore===101) {clearInterval(intervallo);} 
+} , 9000) 
+
+</script>
+
+
+
+<div id="fine"></div>
+</body>
+</html>
