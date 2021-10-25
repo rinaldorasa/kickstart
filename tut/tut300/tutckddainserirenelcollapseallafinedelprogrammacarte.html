@@ -1,0 +1,234 @@
+
+<ARTICLE data-bs-toggle="collapse" href="#TROUBLEWITHCHROME"><span class="badge bg-danger text-light border border-1 border-danger" style="font-variant:small-caps;cursor:pointer;"> lettori pdf </span><span class="bg-light fst-italic fw-bold" style="color:var(--bs-danger);font-size:x-small;"> non tutti i browser supportano i plugin </span><span class="bg-light text-dark" style="display:inline-block;font-size:x-small;font-variant:small-caps;"> ⚠️ possibili malfunzionamenti </span></ARTICLE>
+<ARTICLE id="TROUBLEWITHCHROME" CLASS="collapse border border-3 border-danger">
+<button type="button" onclick="chiudiFinestra()" class="btn btn-success bg-danger text-light fs-6 rounded" style="cursor:pointer;">X</button>
+<button type="button" onclick="apriFinestraPDF()" class="btn btn-success bg-success text-light fs-6 rounded" style="cursor:pointer;">test.pdf</button>
+<button type="button" onclick="apriFinestra()" class="btn btn-success bg-success text-light fs-6 rounded" style="cursor:pointer;">mywindow_test_for_carte</button>
+<script>
+function apriFinestraPDF(){
+W1=window.open ("test.pdf","mywindow_testPDF"); 
+//  
+alert("ricordati di chiudere [X] LA FINESTRA "+"mywindow_testPDF");
+}
+function apriFinestra(){
+let mywindow_test_for_carte ="mywindow_test_for_carte";
+W2=window.open ("my_document.pdf",mywindow_test_for_carte); 
+// user leaves the tab
+//  
+alert("ricordati di chiudere [X] LA FINESTRA "+mywindow_test_for_carte);
+}
+/****************
+*
+*  documentazione
+*  
+*****************/
+function chiudiFinestra(){
+W1.close();
+W2.close();
+}
+// user leaves the tab
+document.addEventListener('blur', (e) => {
+  // your custom code here
+  
+  alert("hai chiuso tab!!!");
+  
+});
+// user enters the tab (again)
+document.addEventListener('focus', (e) => {
+  // your custom code here
+});
+</script>
+</ARTICLE>
+<DIV STYLE="BORDER:SOLID 0.125REM NAVY;" CLASS="m-5"></DIV>
+<ARTICLE>
+    <blockquote class="rounded-3 p-3 border border-5 border-primary bg-warning" style="font-size:medium!important;overflow:auto;">    
+        <input type="file" name="" id="fileId" 
+        onchange="imageUploaded()" class="bg-warning" style="font-size:x-large;">
+    </blockquote> 
+    <button onclick="displayString()">
+    Display String
+    </button>
+    <div id="BASE64" style="overflow:auto;margin:1rem;"><i>dgebi</i>?BASE64</div>
+    
+    <div id="IMGBASE64" style="overflow:auto;margin:1rem;"><i>dgebi</i>?IMGBASE64</div>
+        
+    <div id="IMGBASE64CODE" style="overflow:auto;margin:1rem;"><i>dgebi</i>?IMGBASE64CODE</div>
+    <script> 
+    
+    let base64String = "";
+    
+    NEWGUI_IMGBASE64="hello";
+    
+    function imageUploaded() {
+    var file = document.querySelector(
+    'input[type=file]')['files'][0];
+    
+    var reader = new FileReader();
+    console.log("next");
+    
+    reader.onload = function () {
+    base64String = reader.result.replace("data:", "")
+    .replace(/^.+,/, "");
+    
+    imageBase64Stringsep = base64String;
+    
+    // alert(imageBase64Stringsep);
+    console.log(base64String);
+    }
+    reader.readAsDataURL(file);
+    }
+    
+    function displayString() {
+    // console.log("Base64String about to be printed");
+    // alert(base64String);
+    
+    document.getElementById("BASE64").innerHTML=base64String;
+    
+    var prefisso='<img src="data:image/png;base64,';
+    var suffisso='" alt="" title="" >';
+    
+    document.getElementById("IMGBASE64").innerHTML=
+    prefisso+
+    base64String+
+    suffisso+
+    
+    '';    
+    var prefissoCODE='&#60;img src="data:image/png;base64,';
+    var suffissoCODE='" alt="" title="" &#62;';
+    var BASE64CODE=prefissoCODE+base64String+suffissoCODE;
+    
+    document.getElementById("IMGBASE64CODE").innerHTML=
+    
+    BASE64CODE+
+    
+    '';    
+    
+NEWGUI_IMGBASE64 = BASE64CODE ;
+    
+    }
+    </script>
+</ARTICLE>
+<ARTICLE>
+<div class="my-0 badge border border-5 border-success bg-success" style="overflow:auto;">
+versione Drag&#38;Drop <BR> TRASCINARE LA ICONA DELLA IMMAGINE <br> NEL QUADRATINO
+</div>
+<style>#holder.hover { border: 10px dashed #0c0 !important; }</style>
+<form method="post" action="http://example.com/">
+  <input type="file"><input id="fileDragName"><input id="fileDragSize"><input id="fileDragType"><input id="fileDragData">
+  <div id="holder" style="width:200px; height:200px; border: 10px dashed #ccc"></div>
+</form>
+<script>
+function readfiles(files) {
+  for (var i = 0; i < files.length; i++) {
+    document.getElementById('fileDragName').value = files[i].name
+    document.getElementById('fileDragSize').value = files[i].size
+    document.getElementById('fileDragType').value = files[i].type
+    reader = new FileReader();
+    reader.onload = function(event) {
+ //     
+    document.getElementById('fileDragData').value = '<img src="'+event.target.result+'" alt="" title="" >'; //}
+ // HOLDER = '<img src="'+event.target.result+'" alt="" title="" >';
+    }
+    reader.readAsDataURL(files[i]);
+  }
+}
+var holder = document.getElementById('holder');
+holder.ondragover = function () { this.className = 'hover'; return false; };
+holder.ondragend = function () { this.className = ''; return false; };
+holder.ondrop = function (e) {
+  this.className = '';
+  e.preventDefault();
+  readfiles(e.dataTransfer.files);
+}
+</script>
+</ARTICLE>
+<script>
+let CHIARO_test;   /* testo da criptare */
+/*----(+)----*/
+/*----\_/----*/
+let val_numero_KRIPTO_test;   /* codice di criptazione */ 
+/*----(+)----*/
+/*----\_/----*/
+let KRIPTO_test;  /* testo criptato */
+/*----(+)----*/
+/*----\_/----*/
+let DEKRIPTO_test;   /* testo decriptato */
+CHIARO_test = "";   /* inizializzazione */
+let contachiaro_test;
+let lunghezza_CHIARO_test;
+let car_CHIARO_test;
+let unicode_CHIARO_test;
+let unicode_KRIPTO_test;
+let car_KRIPTO_test;
+let lunghezza_KRIPTO_test;
+let unicode_DEKRIPTO_test;
+</script>
+<ARTICLE>
+<div id="b64ckd" class="bg-dark" style="font-variant:small-caps;text-align:center;">
+<blockquote style="font-variant:normal;"><span>test imagine b64</span></blockquote>
+<code style="DISPLAY:BLOCK;background-color:lightgreen;FONT-WEIGHT:BOLD;">Qui abbiamo il ciclo completo chiarokriptodekripto.</code>
+</div>
+<input id="val_CHIARO_test" type="text" value=""><br>
+<input id="val_KRIPTO_test" type="text" value="0"><br>
+<button onclick="codice()" style="border-radius:0.25rem;background-color:lightgreen;border:solid 0.25rem indigo;">Entra</button>
+<div id="test_test" class="mx-2"style="FONT-SIZE:1.150REM;inline-block;">?</div>
+<script>
+function codice(){
+val_numero_KRIPTO_test=document.getElementById("val_KRIPTO_test").value;
+val_numero_KRIPTO_test=parseInt(val_numero_KRIPTO_test);
+CHIARO_test = document.getElementById("val_CHIARO_test").value;
+lunghezza_CHIARO_test=CHIARO_test.length;
+KRIPTO_test=""; car_CHIARO_test="";
+for(contachiaro_test=0;contachiaro_test<lunghezza_CHIARO_test;contachiaro_test++)
+{
+  unicode_CHIARO_test=CHIARO_test.charCodeAt(contachiaro_test);
+  unicode_KRIPTO_test=unicode_CHIARO_test+val_numero_KRIPTO_test;
+  car_CHIARO_test =  CHIARO_test.charAt(contachiaro_test);
+  car_KRIPTO_test =  String.fromCharCode(unicode_KRIPTO_test);
+  
+  KRIPTO_test=KRIPTO_test+car_KRIPTO_test;
+ 
+}
+DEKRIPTO_test="";
+lunghezza_KRIPTO_test=KRIPTO_test.length
+for(contachiaro_test=0;contachiaro_test<lunghezza_KRIPTO_test;contachiaro_test++)
+{
+  unicode_DEKRIPTO_test=KRIPTO_test.charCodeAt(contachiaro_test)-val_numero_KRIPTO_test;
+  DEKRIPTO_test=DEKRIPTO_test+String.fromCharCode(unicode_DEKRIPTO_test);
+}
+document.getElementById("test_test").innerHTML=
+'   CHIARO            ==><span style="background-color:pink;OVERFLOW:AUTO;">'                          +CHIARO_test   +'</span><=='  +typeof(CHIARO_test)            +' <br>'+
+'   val_numero_KRIPTO ==><span style="background-color:pink;OVERFLOW:AUTO;">'               +val_numero_KRIPTO_test   +'</span><=='  +typeof(val_numero_KRIPTO_test) +' <br>'+
+'<article class="my-3">'+
+'<button type="button" class="btn btn-sm btn-success bg-success" style="margin-top:0.25rem;font-weight:bold;font-family:sans-serif;font-variant:small-caps;" onclick="copyToClipboard(`#p1_test`)">Copia KRIPTO negli appunti</button>'+
+' <div class="py-3 bg-light border borde-1 border-danger rounded" STYLE="OVERFLOW:AUTO">'+
+'   KRIPTO            ==><BR><span id="p1_test" style="background-color:pink;OVERFLOW:AUTO;">' + KRIPTO_test + '</span><BR><=='  +typeof(KRIPTO_test)            +' <br>'+
+' </div>'+
+'</article>'+
+'   DEKRIPTO_test          ==><span style="background-color:pink;OVERFLOW:AUTO;">'                        +DEKRIPTO_test   +'</span><=='  +typeof(DEKRIPTO_test)          +' <br>'+
+'   contachiaro_test       ==><span style="background-color:pink;OVERFLOW:AUTO;">'                     +contachiaro_test   +'</span><=='  +typeof(contachiaro_test)       +' <br>'+
+'   lunghezza_CHIARO_test  ==><span style="background-color:pink;OVERFLOW:AUTO;">'                +lunghezza_CHIARO_test   +'</span><=='  +typeof(lunghezza_CHIARO_test)  +' <br>'+
+'   car_CHIARO_test        ==><span style="background-color:pink;OVERFLOW:AUTO;">'                      +car_CHIARO_test   +'</span><=='  +typeof(car_CHIARO_test)        +' <br>'+
+'   unicode_CHIARO_test    ==><span style="background-color:pink;OVERFLOW:AUTO;">'                  +unicode_CHIARO_test   +'</span><=='  +typeof(unicode_CHIARO_test)    +' <br>'+
+'   unicode_KRIPTO_test    ==><span style="background-color:pink;OVERFLOW:AUTO;">'                  +unicode_KRIPTO_test   +'</span><=='  +typeof(unicode_KRIPTO_test)    +' <br>'+
+'   car_KRIPTO_test        ==><span style="background-color:pink;OVERFLOW:AUTO;">'                      +car_KRIPTO_test   +'</span><=='  +typeof(car_KRIPTO_test)        +' <br>'+
+'   lunghezza_KRIPTO_test  ==><span style="background-color:pink;OVERFLOW:AUTO;">'                +lunghezza_KRIPTO_test   +'</span><=='  +typeof(lunghezza_KRIPTO_test)  +' <br>'+
+'   unicode_DEKRIPTO_test  ==><span style="background-color:pink;OVERFLOW:AUTO;">'                +unicode_DEKRIPTO_test   +'</span><=='  +typeof(unicode_DEKRIPTO_test)  +' <br>'+
+'   DEKRIPTO_test          ==><span style="background-color:pink;OVERFLOW:AUTO;">'                        +DEKRIPTO_test   +'</span><=='  +typeof(DEKRIPTO_test)          +' <br>'+
+' <br>'+
+'';
+} // codice()
+//******************************************
+//
+// copyToClipboard
+//******************************************
+let element_test;
+function copyToClipboard(element_test) {
+var $temp = $("<input>");
+$("body").append($temp);
+$temp.val($(element_test).text()).select();
+document.execCommand("copy");
+$temp.remove();
+}
+</script>
+</ARTICLE>
